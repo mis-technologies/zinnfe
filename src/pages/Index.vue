@@ -21,7 +21,7 @@
                     Lorem ipsum dolor sit amet consectetur. Nisi sollicitudin vel commodo malesuada eget eu placerat platea egestas. Ipsum morbi.
                 </p>
                 <div class="button pt-3">
-                    <a class="btn signUp me-3" href="/signup" >Sign Up </a>
+                    <a class="btn signUp me-3" href="/signup" >Sign git stUp </a>
                     <a class="btn login" href="/signin" >Login</a>
                 </div>
             </div>
