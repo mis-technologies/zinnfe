@@ -7,7 +7,7 @@ import piniaPluginPersistedstate from 'pinia-plugin-persistedstate'
 
 
 import App from './App.vue';
-import './styles/base.css';
+// import './styles/base.css';
 
 // Router
 import { Router } from '/@/router';

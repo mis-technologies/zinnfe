@@ -1,115 +1,52 @@
-<script setup lang="ts">
-import { useI18n } from 'vue-i18n';
 
-import {  ref } from 'vue';
-import { useTheme } from '/@/composables';
-
-import { useAuthStore } from '../store';
-
-
-const { t, availableLocales, locale } = useI18n();
-
-const store = useAuthStore();
-console.log(store.store)
-
-const toggleLocales = () => {
-  const locales = availableLocales;
-  locale.value =
-    locales[(locales.indexOf(locale.value) + 1) % locales.length];
-};
-
-const { toggleDark } = useTheme();
-
-const show = ref(false);
-
-setTimeout(() => {
-  show.value = true;
-}, 1000);
-
-</script>
 <template>
-  <div class="container max-w-3xl mx-auto mt-60">
-    <div class="">
-      <transition
-        enter-active-class="transition ease-out duration-1000 transform"
-        enter-from-class="-translate-x-100 opacity-0"
-        enter-to-class="translate-x-0 opacity-100"
-        leave-active-class="transition ease-in duration-1000 transform"
-        leave-from-class="opacity-100"
-        leave-to-class="opacity-0"
-      >
-        <img
-          v-if="show"
-          alt="Vitesome logo"
-          class="w-52 mx-auto mb-12"
-          :src="'imagotype.svg'"
-        />
-      </transition>
-    </div>
 
-    <HelloWorld :msg="t('hello') + ' 👋 ' + t('welcome')" />
+        <div ref="preloader" class="preloader-wrapper">
+            <img src="images/zinnlogo.png" />
+        </div>
 
-    <footer class="text-center">
-      <ul class="flex justify-between w-1/3 mx-auto mb-8">
-        <li class="cursor-pointer text-2xl">
-          <a
-            href="#"
-            @click="toggleLocales"
-            class="footer-link text-cyan-700 hover:text-cyan-500"
-            :title="t('toggle_language')"
-          >
-            <i class="i-ph-translate-bold" />
-          </a>
-        </li>
-        <li class="cursor-pointer text-2xl">
-          <a
-            href="#"
-            @click="toggleDark()"
-            class="text-cyan-700 hover:text-cyan-500"
-            :title="t('toggle_theme')"
-          >
-            <i i="ph-sun dark:ph-moon" />
-          </a>
-        </li>
-        <li class="cursor-pointer text-2xl">
-          <a
-            href="https://github.com/alvarosabu"
-            rel="noreferrer"
-            target="_blank"
-            class="footer-link text-cyan-700 hover:text-cyan-500"
-            title="Github repo"
-          >
-            <i class="i-ph-github-logo" />
-          </a>
-        </li>
-      </ul>
+        <div class="onboarding" style="">
+            <i class="fa-solid fa-arrow-left" onclick="closeButton() "></i>
+            <div class="container-fluid d-flex flex-column align-items-center justify-content-center">
+                <div class="zinn__logo">
+                    <img src="images/zinnlogo.png" />
+                </div>
+                <img src="images/onboarding-image.png" class="w-75" />
+            </div>
+            <div class="onboarding-content px-5 mx-2">
+                <h1 class="text-white onboarding-content__heading mb-3">
+                    Welcome <img src="images/Welcome 🎉.png" alt="" />
+                </h1>
+                <p class="text-white onboarding-content__description mb-3">
+                    Lorem ipsum dolor sit amet consectetur. Nisi sollicitudin vel commodo malesuada eget eu placerat platea egestas. Ipsum morbi.
+                </p>
+                <div class="button pt-3">
+                    <a class="btn signUp me-3" href="/signup" >Sign Up </a>
+                    <a class="btn login" href="/signin" >Login</a>
+                </div>
+            </div>
+        </div>
 
-      <span class="text-xs"
-        >{{ t('made_by') }}
-        <a
-          class="footer-link text-cyan-400 hover:text-cyan-500"
-          href="https://github.com/airondev"
-          rel="noreferrer"
-          target="_blank"
-          >Aaron Aniebiet</a
-        ></span
-      >
-    </footer>
-  </div>
+       
 </template>
-
-<style>
-a,
-.footer-link {
-  @apply transition-all ease-out duration-100;
-}
-
-.footer-link {
-  opacity: 0.8;
-}
-</style>
 
 <route lang="yaml">
   meta:
-    layout: default
+    layout: guest
 </route>
+
+
+<script lang="ts">
+export default {
+  mounted(){
+
+    const preloaderWrapper = document.querySelector(".preloader-wrapper");
+
+    setTimeout(() =>{
+      preloaderWrapper.classList.add("fade-out-animation");
+    }, 6000)
+   
+    console.log('ad', preloaderWrapper)
+  }
+}
+</script>
