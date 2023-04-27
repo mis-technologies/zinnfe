@@ -43,7 +43,7 @@ export default {
     const preloaderWrapper = document.querySelector(".preloader-wrapper");
 
     setTimeout(() =>{
-      preloaderWrapper.classList.add("fade-out-animation");
+      preloaderWrapper?.classList.add("fade-out-animation");
     }, 6000)
    
     console.log('ad', preloaderWrapper)
