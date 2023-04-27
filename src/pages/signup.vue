@@ -4,7 +4,10 @@
 
     <div class="row w-full mt-5 align-items-center">
       <div class="col-1 ">
-        <button class="btn btn-primary"><i class="fa-solid fa-arrow-left" onclick="closeButton() ">Back</i></button>
+
+        <button class="btn btn-primary" @click.prevent="$router.back()">
+          <i class="fa-solid fa-arrow-left">Back</i>
+        </button>
       </div>
 
       <div class="col-11">
@@ -42,7 +45,7 @@
 
         <div class="d-flex align-self-end my-5">
           <p class="">Already have an account</p>
-          <a href="/signin" class="btn text-dark  ">Sign in</a>
+          <router-link class="btn text-dark"  to="/signin">Signin</router-link>
         </div>
 
 

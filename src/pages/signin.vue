@@ -4,7 +4,9 @@
 
     <div class="row w-full mt-5 align-items-center">
       <div class="col-1 ">
-        <button class="btn btn-primary"><i class="fa-solid fa-arrow-left" onclick="closeButton() ">Back</i></button>
+        <button class="btn btn-primary" @click.prevent="$router.back()">
+          <i class="fa-solid fa-arrow-left" >Back</i>
+        </button>
       </div>
 
       <div class="col-11">
@@ -34,7 +36,7 @@
 
         <div class="d-flex align-self-end my-5">
           <p class="">Don't have an account ?</p>
-          <a href="/signup" class="btn text-dark  ">Sign up</a>
+          <router-link class="btn text-dark"  to="/signup">Signup</router-link>
         </div>
 
 
