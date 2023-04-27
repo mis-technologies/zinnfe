@@ -5,7 +5,7 @@
 
 [build]
   publish = "dist"
-  command = "yarn--store=node_modules/.pnpm-store & yarn build"
+  command = "yarn & yarn build"
 
 [[redirects]]
   from = "/*"
