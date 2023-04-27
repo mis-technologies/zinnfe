@@ -9,7 +9,7 @@
 
       <div class="col-11">
         <div class=" container-fluid d-flex flex-column align-items-center justify-content-center">
-          <img src="images/zinnlogo.png" class="w-40" />
+          <img src="/images/zinnlogo.png" class="w-40" />
         </div>
       </div>
 
