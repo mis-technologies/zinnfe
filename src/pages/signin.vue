@@ -20,14 +20,14 @@
     <div class="authform signin-authform authformScale">
       <h1 class="my-4">Sign in</h1>
       <p class="mb-4">Signin to your account</p>
-      <form class="form d-flex flex-column align-items-start justify-content-between" aria-hidden="true">
+      <form @submit.prevent="loginUser()" class="form d-flex flex-column align-items-start justify-content-between" aria-hidden="true">
 
         <div class="d-flex w-100 input-field">
-          <input type="email" class="form-control mb-4" id="email" placeholder="Email address" required />
+          <input v-model="payload.email" type="email" class="form-control mb-4" id="email" placeholder="Email address" required />
         </div>
 
         <div class="w-100 input-field position-relative">
-          <input type="password" class="form-control" id="password" placeholder="Password" required />
+          <input v-model="payload.password" type="password" class="form-control" id="password" placeholder="Password" required />
           <span class="eye" onclick="myFunction()">
             <i id="eye1" class="fa-regular fa-eye"></i>
             <i id="eye2" class="fa-regular fa-eye-slash"></i>
@@ -39,9 +39,7 @@
           <router-link class="btn text-dark"  to="/signup">Signup</router-link>
         </div>
 
-
-
-        <button type="submit" class="btn btn-primary" onclick="auth()">
+        <button type="submit" class="btn btn-primary" >
           Submit
         </button>
       </form>
@@ -51,12 +49,44 @@
 
 <route lang="yaml">
   meta:
-    layout: guest
+    layout: 'guest'
+    tomiddleware: ['guest']
+    requiresAuth: false
 </route>
 
 
 <script lang="ts">
+import { AuthService } from '../services';
+import { useAuthStore } from '~/store/auth';
+
 export default {
-  mounted() { }
+  
+  data(){
+    return {
+      payload: {}
+    }
+  },
+  mounted() { },
+  methods: {
+    loginUser(){
+
+      try {
+          AuthService.loginUser(this.payload).then((res)=>{
+              const authStore = useAuthStore();
+              authStore.setAuthUser(res.data.user)
+              authStore.setToken(res.data.token)
+              // navigateTo('/timeline')
+             
+          }).catch( (err) =>{
+              console.log(err)
+              // useState('isBusy').value = false;
+          })  
+      } catch (error) {
+          // $toast(error);
+          // useState('isBusy').value = false;
+      }
+
+    }
+  }
 }
 </script>

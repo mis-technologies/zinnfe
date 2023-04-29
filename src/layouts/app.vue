@@ -1,8 +1,8 @@
 <template>
-    <UserHeader></UserHeader>
-    <main class="mdk-header-layout__content page" style="padding-top: 60px;">
-        <RouterView />
+   
+    <main class="homepage-wrapper" >
+        <RouterView/>
+   
+        <AppBottomBar></AppBottomBar>
     </main>
- 
-    <BottomBar/>
 </template>

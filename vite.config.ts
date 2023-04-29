@@ -9,6 +9,7 @@ import ViteFonts from 'vite-plugin-fonts';
 import svgLoader from 'vite-svg-loader';
 import Pages from 'vite-plugin-pages'
 import Layouts from 'vite-plugin-vue-layouts';
+import { fileURLToPath } from 'url';
 
 
 
@@ -20,6 +21,8 @@ export default defineConfig({
   resolve: {
     alias: {
       '/@': resolve(__dirname, './src'),
+      '~': resolve(__dirname, './src'),
+      // '~': fileURLToPath(new URL('./', import.meta.url)),
     },
   },
   plugins: [
