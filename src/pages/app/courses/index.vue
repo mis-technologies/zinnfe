@@ -1,8 +1,8 @@
 
 <template>
   <div class="home-container position-relative">
-    <div class="heading fixed-top px-4 py-5 bg-white mb-4 d-flex align-items-center justify-content-between">
-      <h2>Hello!buddy👍</h2>
+    <div class="heading fixed-top px-4 py-3 bg-white mb-4 d-flex align-items-center justify-content-between">
+      <AppHeaderBar></AppHeaderBar>
       <span>
         <img src="/images/Image.png " alt="Profile image " />
       </span>
@@ -75,5 +75,6 @@
     layout: 'app'
     tomiddleware: ['auth']
     requiresAuth: true
+  name: 'app-courses'
  
 </route>

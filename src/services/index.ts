@@ -1,6 +1,6 @@
 import AuthService from './auth'
 import UserService from './user'
-import ConnectService from './connect'
+import QuizService from './quiz'
 import ContentService from './content'
 
-export {AuthService, UserService, ConnectService, ContentService}
+export {AuthService, UserService, QuizService, ContentService}

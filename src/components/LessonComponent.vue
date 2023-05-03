@@ -2,9 +2,9 @@
 <template>
     <div class="video-wrapper fixed-top px-4 pt-4 bg-white position-relative d-flex align-items-center">
         <div class="cyber-icon">
-            <a href="homepage.html"><i class="fa-solid fa-arrow-left"></i></a>
+            <a href="" @click.prevent="$router.back()"><i class="fa-solid fa-arrow-left"></i></a>
         </div>
-        <span>Cyber security minefield</span>
+        <div><span>Cyber security minefield</span></div>
     </div>
     <div class="videowrapper position-relative mt-5 pt-5">
         <iframe src="https://www.youtube.com/embed/inWWhr5tnEA " frameborder="0 " class="position-absolute"

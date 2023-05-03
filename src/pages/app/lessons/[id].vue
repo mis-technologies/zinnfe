@@ -1,10 +1,7 @@
 
 <template>
     <div class="home-container position-relative">
-
        <LessonComponent course_id="2877823728728"></LessonComponent>
-
-
     </div>
 </template>
 
@@ -13,5 +10,6 @@
     layout: 'app'
     tomiddleware: ['auth']
     requiresAuth: true
+  name: 'app-lesson-detail'
  
 </route>

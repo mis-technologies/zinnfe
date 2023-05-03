@@ -75,15 +75,13 @@ export default {
               const authStore = useAuthStore();
               authStore.setAuthUser(res.data.user)
               authStore.setToken(res.data.token)
-              // navigateTo('/timeline')
+              this.$router.push('/app')
              
           }).catch( (err) =>{
               console.log(err)
-              // useState('isBusy').value = false;
           })  
       } catch (error) {
-          // $toast(error);
-          // useState('isBusy').value = false;
+          
       }
 
     }

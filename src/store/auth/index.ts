@@ -1,11 +1,11 @@
 import { defineStore } from 'pinia';
 export const useAuthStore = defineStore('useAuthStore', {
   state: (): {
-    authUser: Object,
+    authUser: any,
     isLoggedIn: Boolean,
     bearerToken: string
   } => ({
-    authUser: {name: 'ds'},
+    authUser: {},
     isLoggedIn: false,
     bearerToken: ''
   }),
@@ -50,6 +50,6 @@ export const useAuthStore = defineStore('useAuthStore', {
       console.log(`just restored '${ctx.store.$id}'`)
     },
 
-    paths: ['isLoggedIn', 'bearerToken'],
+    paths: ['isLoggedIn', 'bearerToken', 'authUser'],
   },
 });

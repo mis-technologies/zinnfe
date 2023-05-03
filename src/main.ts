@@ -12,6 +12,8 @@ import './styles/base.css';
 
 // Router
 import { Router } from '/@/router';
+import VueCountdown from '@chenfengyuan/vue-countdown';
+
 
 
 
@@ -67,5 +69,7 @@ const app = createApp(App);
 app.use(Router);
 
 app.use(pinia);
+
+app.component(VueCountdown.name, VueCountdown);
 
 app.mount('#app');
