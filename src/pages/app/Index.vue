@@ -49,24 +49,8 @@
         <a class="text-lg mx-2" href="" @click.prevent="$router.push({name: 'app-lessons'})">View All</a>
       </div>
       
-      <div class="running-course">
-        <div class="carousel-body d-flex flex-column gap-3">
-          <div class="item-1 d-flex align-items-center border rounded my-2 p-2">
-            <div class="image"><img src="/images/Rectangle 3463364.png" class="d-block w-75" alt="..."></div>
-            <div class="text">
-              <h2>Cyber Security minefield</h2>
-              <div class="d-flex align-items-center justify-content-between"></div>
-            </div>
-          </div>
-          <div class="item-1 d-flex align-items-center  border rounded my-2 p-2">
-            <div class="image"><img src="/images/Rectangle 3463365.png" class="d-block w-75" alt="..."></div>
-            <div class="text">
-              <h2>The science of cyber fields</h2>
-              <div class="d-flex align-items-center justify-content-between"></div>
-            </div>
-          </div>
-        </div>
-      </div>
+      <LessonListComponent list="top" limit="5"></LessonListComponent>
+
     </section>
 
 

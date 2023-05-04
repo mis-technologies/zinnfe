@@ -11,6 +11,7 @@ declare module '@vue/runtime-core' {
     AppHeaderBar: typeof import('./components/AppHeaderBar.vue')['default']
     HelloWorld: typeof import('./components/HelloWorld.vue')['default']
     LessonComponent: typeof import('./components/LessonComponent.vue')['default']
+    LessonListComponent: typeof import('./components/LessonListComponent.vue')['default']
     QuestionComponent: typeof import('./components/QuestionComponent.vue')['default']
     QuizSessionComponent: typeof import('./components/QuizSessionComponent.vue')['default']
     QuizSessionResultComponent: typeof import('./components/QuizSessionResultComponent.vue')['default']

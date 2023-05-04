@@ -8,17 +8,7 @@
       </span>
     </div>
 
-    <!-- alert -->
-    <div class="hero d-flex align-items-center justify-content-between">
-      <div class="text w-2/3">
-        <span>Start a quiz or challenge a friend?!</span>
-        <p>Be a part of an ongoing quiz competition or start a quiz</p>
-      </div>
-      <div class="image w-1/3">
-        <img src="/images/pencil-dynamic-color.png" class="image2" alt="" />
-        <span></span>
-      </div>
-    </div>
+
 
     <!-- ongoing course -->
     <section class="my-20">
@@ -27,42 +17,16 @@
       </div>
 
       <div class="row row-cols-2 row-cols-md-2 g-4">
-        <div class="col cursor-pointer">
+        <div @click="$router.push({name: 'app-course', params: {id: course.id}})" v-for="course in courses" class="col cursor-pointer">
           <div class="card d-flex align-items-center justify-content-between flex-column border-0 text-center">
-            <img src="/images/Image (2).png" class="card-img-top w-50" alt="...">
+            <img :src="course.cover_image" class="card-img-top w-50" alt="...">
             <div class="card-body">
-              <h5 class="card-title">Parformance analysis</h5>
-              <p class="card-text">8 Lessons</p>
+              <h5 class="card-title">{{ course.title }}</h5>
+              <p class="card-text">{{ course.lesson_count }} Lessons</p>
             </div>
           </div>
         </div>
-        <div class="col">
-          <div class="card d-flex align-items-center justify-content-between flex-column border-0 text-center">
-            <img src="/images/Image (1).png" class="card-img-top w-50" alt="...">
-            <div class="card-body">
-              <h5 class="card-title">Parformance analysis</h5>
-              <p class="card-text">12 Lesson</p>
-            </div>
-          </div>
-        </div>
-        <div class="col">
-          <div class="card d-flex align-items-center justify-content-between flex-column border-0 text-center">
-            <img src="/images/Image (3).png" class="card-img-top w-50" alt="...">
-            <div class="card-body">
-              <h5 class="card-title">Parformance analysis</h5>
-              <p class="card-text">4 Lessons</p>
-            </div>
-          </div>
-        </div>
-        <div class="col">
-          <div class="card d-flex align-items-center justify-content-between flex-column border-0 text-center">
-            <img src="/images/Image (4).png" class="card-img-top w-50" alt="...">
-            <div class="card-body">
-              <h5 class="card-title">Parformance analysis</h5>
-              <p class="card-text">9 Lessons</p>
-            </div>
-          </div>
-        </div>
+      
       </div>
     </section>
 
@@ -78,3 +42,31 @@
   name: 'app-courses'
  
 </route>
+
+
+<script lang="ts">
+import { ContentService } from '../../../services';
+export default {
+
+    data() {
+        return {
+            courses: []
+        }
+    },
+    mounted() {
+        // let courseId = this.course_id ?? this.$route.params.id
+
+        ContentService.getCourses().then(res => {
+            this.courses = res.data
+            console.log(res)
+        }).catch(err => {
+            console.log(err)
+        })
+
+    },
+    methods: {
+        loginUser() { }
+    }
+
+}
+</script>

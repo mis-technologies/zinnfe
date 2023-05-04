@@ -1,6 +1,6 @@
 
 <template>
-    <QuizSessionComponent level="level" quiz_id="quiz_id" ></QuizSessionComponent>
+    <QuizSessionComponent :lesson_id="lesson_id" ></QuizSessionComponent>
 </template>
 
 
@@ -10,7 +10,7 @@
         data(){
             return{
                 quiz_id: this.$route.query.quiz_id,
-                level: this.$route.params.level,
+                lesson_id: this.$route.params.id,
             }
         },
         methods: {}
@@ -22,7 +22,7 @@
         layout: 'app'
         tomiddleware: ['auth']
         requiresAuth: true
-    name: 'quiz-session'
+    name: 'lesson-quiz-session'
 
  
 </route>
