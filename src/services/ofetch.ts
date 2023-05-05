@@ -1,17 +1,17 @@
 import { ofetch } from 'ofetch'
 // import { useAuthStore } from '../store/auth';
 
+
 import { Router } from '../router';
 
 
 let options = {
-    baseURL: 'http://zinnbe.test/api/v1',
+    baseURL: import.meta.env.VITE_API_BASE_URL ?? 'http://zinnbe.test/api/v1',
     headers: {
         Accept: 'application/json',
         'Cache-Control': 'no-cache'
     },
     onRequest: ({request, response, options, error}: any) => {
-    
        if(window.localStorage.useAuthStore){
         const authStore =  JSON.parse(window.localStorage.useAuthStore); // global method
         if ( authStore.isLoggedIn && authStore.bearerToken ){
