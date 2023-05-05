@@ -6,8 +6,6 @@ function middlewarePipeline (context, middlewares, index) {
     const middleware = middlewares[index]
  
 
-    console.log(context, 'context')
-
 
     if(middleware == 'guest'){
         // console.log('guest')

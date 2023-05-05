@@ -38,9 +38,13 @@
 
 <script lang="ts">
 // @ts-nocheck
+
+
 export default {
   mounted(){
 
+    delete window.localStorage.useAuthStore;
+    
     const preloaderWrapper = document.querySelector(".preloader-wrapper");
 
     setTimeout(() =>{
@@ -48,6 +52,7 @@ export default {
     }, 4000)
    
     console.log('ad', preloaderWrapper)
+
   }
 }
 </script>

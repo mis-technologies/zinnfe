@@ -6,11 +6,6 @@ export default function guestMiddleware({next, to, from}){
     console.log('isLoggedIn: ', isLoggedIn)
     
     if(isLoggedIn){
-
-        // console.log('sd')
-
-        console.log('next: ', next)
-        
         return next({
             name: 'app-home'
         })
