@@ -193,18 +193,14 @@ export default {
 
         //select answer
         selectAnswer(answer: any, question: any, event: any){
-
             this.no_answer_selected = false
             this.current_question.selected_answer_id =  answer.id
-
             this.$refs['answer'].map(el => el.classList.remove('selected'));
             event.target.classList.toggle('selected')
-
         },
 
         submitQuizResponse(){
             console.log(this.quiz_responses)
-
             QuizService.submitQuizSession(
                 this.quiz_session.id,
                 this.quiz_responses
