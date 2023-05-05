@@ -10,7 +10,8 @@
         </div>
         
       <span>
-        <img :src=" authUser.profile_pic " alt="Profile image " />
+        <!-- <img :src=" authUser.profile_pic " alt="Profile image " /> -->
+        <img src="/images/images.png" alt="Profile image " />
       </span>
     </div>
 </template>

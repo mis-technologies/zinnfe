@@ -33,7 +33,9 @@
                 </div>
 
             </div>
-            <a @click.prevent="$router.push({path: '/app/quizes'})" class="btn w-full border  text-white fw-bold fs-2 rounded  py-2  ">continue</a>
+            <a @click.prevent="$router.push({path: '/app/courses'})" class="btn w-full border  text-white fw-bold fs-2 rounded my-2  py-2  ">View Courses</a>
+            <a @click.prevent="$router.push({path: '/app/lessons'})" class="btn w-full border  text-white fw-bold fs-2 rounded my-2 py-2  ">View Lessons</a>
+            <a @click.prevent="$router.push({path: '/app/quizes'})" class="btn w-full border  text-white fw-bold fs-2 rounded my-2 py-2  ">View Quizes</a>
         </div>
        
     </div>
@@ -43,7 +45,7 @@
 <script lang="ts">
 // @ts-nocheck
 import { QuizService } from '../services';
-
+import { useAuthStore } from '../../store/auth';
 
 export default {
 
@@ -58,6 +60,7 @@ export default {
     data() {
         return {
             quiz_session_result: '',
+            authUser: useAuthStore().authUser
         }
     },
 

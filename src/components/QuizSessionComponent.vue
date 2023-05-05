@@ -3,11 +3,10 @@
     <div class="question-section position-relative" style="height: 90vh;">
         <div v-if="questions.length > 0">
             <div class="heading fixed-top px-4 py-2  mb-4 d-flex align-items-center justify-content-between">
-                <div class="header-image__wrapper position-relative me-4">
-                    <!-- <img src="/images/Female teacher.png" class="position-absolute w-75" alt="Profile image" /> -->
-                </div>
-                <div class="d-flex align-items-start flex-column me-auto mt-3">
-                    <h3 class="fs-2 fw-bolder">Chidinma</h3>
+                
+                <div class="d-flex align-items-start align-items-center mx-2 me-auto mt-3">
+                    <img :src=" authUser.profile_pic " class="rounded w-20" alt="Profile image" />
+                    <h3 class="fs-2 fw-bolder">{{authUser.name}}</h3>
                 </div>
                 <div class="d-flex flex-column align-items-center mt-3">
                     <i class="fa-solid fa-clock fs-1"></i>
@@ -51,6 +50,8 @@
 
 import VueCountdown from '@chenfengyuan/vue-countdown';
 import { QuizService } from '../services';
+import { useAuthStore } from '../store';
+
 
 
 export default {
@@ -71,6 +72,7 @@ export default {
     },
     data() {
         return {
+            authUser: useAuthStore().authUser,
             questions: [],
             current_question: {},
             total_questions: 0,

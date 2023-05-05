@@ -2,7 +2,7 @@
 <template>
   <div class="container-wrapper next d-flex flex-column position-relative">
     <div class="container-header mb-4">
-      <a href="index.html">
+      <a href="" @click.prevent="$router.back()">
         <div class="cyber-icon">
           <i class="fa-solid fa-arrow-left"></i>
         </div>
