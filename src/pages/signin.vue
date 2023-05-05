@@ -75,7 +75,7 @@ export default {
               const authStore = useAuthStore();
               authStore.setAuthUser(res.data.user)
               authStore.setToken(res.data.token)
-              this.$router.push('/app')
+              this.$router.push('/zinn') // user choose between interactive mode or none interactive mode
              
           }).catch( (err) =>{
               console.log(err)

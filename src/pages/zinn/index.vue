@@ -22,7 +22,7 @@
     </div>
     <div class="d-flex justify-content-center">
       <button @click="$router.push({name: 'zinn-get-to-know'})" style="width: 30%; padding: 0 10px; margin: 5px;" class="">Yes</button>
-      <button style="width: 30%; padding: 0 10px; margin: 5px;" class="" >No</button>
+      <button @click="$router.push({name: 'app-home'})"  style="width: 30%; padding: 0 10px; margin: 5px;" class="" >No</button>
     </div>
   </div>
 </template>
