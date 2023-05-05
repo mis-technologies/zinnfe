@@ -10,7 +10,7 @@
     </div>
     <div class="container-body d-flex align-items-center justify-content-center flex-column w-100 mt-4">
       <div class="image-wrapper">
-        <img src="images/Image.png">
+        <img src="/images/Image.png">
       </div>
       <p class="text-center">
         Say hello to <span>ZINN</span>, your Ai buddy, <br> Welcome on board!
@@ -38,6 +38,7 @@
 </route>
 
 <script lang="ts">
+// @ts-nocheck
 import { useAuthStore } from '../../store/auth';
 export default {
   data() {

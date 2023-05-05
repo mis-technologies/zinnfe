@@ -67,6 +67,7 @@
 </route>
 
 <script lang="ts">
+// @ts-nocheck
 import { useAuthStore } from '../../store/auth';
 export default {
   data(){

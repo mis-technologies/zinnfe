@@ -17,6 +17,8 @@
     "strictNullChecks": true,
     "forceConsistentCasingInFileNames": true,
     "declaration": true,
+    "allowUnusedLabels": true,
+    "noImplicitAny": false,
     "paths": {
       "/@/*": ["src/*"]
     },

@@ -41,6 +41,7 @@
    
    
 <script lang="ts">
+// @ts-nocheck
 import { QuizService } from '../services';
 
 

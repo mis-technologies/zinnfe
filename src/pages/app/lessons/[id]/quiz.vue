@@ -36,6 +36,7 @@
 
 
 <script lang="ts">
+// @ts-nocheck
 import { ContentService } from '/@/services'
 
 

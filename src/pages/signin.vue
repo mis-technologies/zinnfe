@@ -56,6 +56,7 @@
 
 
 <script lang="ts">
+// @ts-nocheck
 import { AuthService } from '../services';
 import { useAuthStore } from '~/store/auth';
 

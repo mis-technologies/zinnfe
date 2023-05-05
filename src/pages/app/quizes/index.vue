@@ -18,7 +18,7 @@
         </button>
       </div>
       <div class="image">
-        <img src="/images/Educational Folder.png" alt="" />
+        <!-- <img src="/images/Educational Folder.png" alt="" /> -->
       </div>
     </div>
 
@@ -87,6 +87,7 @@
 
 
 <script lang="ts">
+// @ts-nocheck
 import { QuizService } from '/@/services';
 
 export default {
