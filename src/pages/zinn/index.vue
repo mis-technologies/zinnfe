@@ -32,6 +32,8 @@
     layout: 'zinn'
     tomiddleware: ['auth']
     requiresAuth: true
+  name: 'zinn'
+    
  
 </route>
 
