@@ -21,22 +21,30 @@
     <div class="authform signup-authform authformScale">
       <h1 class="my-4">Sign up</h1>
       <p class="mb-4">Create an account to get started with us</p>
-      <form class="form d-flex flex-column align-items-start justify-content-between" aria-hidden="true">
+      <form  @submit.prevent="registerUser()" class="form d-flex flex-column align-items-start justify-content-between" aria-hidden="true">
        
         <div class="d-flex w-100 input-field">
-          <input type="email" class="form-control mb-4" id="email" placeholder="Email address" required />
+          <input v-model="payload.email" type="email" class="form-control mb-4" id="email" placeholder="Email address" required />
         </div>
 
         <div class="d-flex w-100 input-field">
-          <input type="text" class="form-control mb-4" id="firstname" placeholder="Firstname" required />
+          <input  v-model="payload.firstname" type="text" class="form-control mb-4" id="firstname" placeholder="Firstname" required />
         </div>
 
         <div class="d-flex w-100 input-field">
-          <input type="text" class="form-control mb-4" id="lastname" placeholder="Lastname" required />
+          <input  v-model="payload.lastname" type="text" class="form-control mb-4" id="lastname" placeholder="Lastname" required />
         </div>
         
         <div class="w-100 input-field position-relative">
-          <input type="password" class="form-control" id="password" placeholder="Password" required />
+          <input  v-model="payload.password" type="password" class="form-control" id="password" placeholder="Password" required />
+          <span class="eye" onclick="myFunction()">
+            <i id="eye1" class="fa-regular fa-eye"></i>
+            <i id="eye2" class="fa-regular fa-eye-slash"></i>
+          </span>
+        </div>
+
+        <div class="w-100 input-field position-relative my-4">
+          <input  v-model="payload.password_confirmation" type="password" class="form-control" id="password" placeholder="Password" required />
           <span class="eye" onclick="myFunction()">
             <i id="eye1" class="fa-regular fa-eye"></i>
             <i id="eye2" class="fa-regular fa-eye-slash"></i>
@@ -50,7 +58,7 @@
 
 
 
-        <button type="submit" class="btn btn-primary" onclick="auth()">
+        <button type="submit" class="btn btn-primary" >
           Submit
         </button>
       </form>
@@ -66,8 +74,36 @@
 
 <script lang="ts">
 // @ts-nocheck
+import { AuthService } from '../services';
+import { useAuthStore } from '~/store/auth';
+
 export default {
-  mounted() {
+  
+  data(){
+    return {
+      payload: {}
+    }
+  },
+  mounted() { },
+  methods: {
+    registerUser(){
+
+      console.log(this.payload)
+      try {
+          AuthService.registerUser(this.payload).then((res)=>{
+              const authStore = useAuthStore();
+              authStore.setAuthUser(res.data.user)
+              authStore.setToken(res.data.token)
+              this.$router.push('/zinn') // user choose between interactive mode or none interactive mode
+             
+          }).catch( (err) =>{
+              console.log(err)
+          })  
+      } catch (error) {
+          
+      }
+
+    }
   }
 }
 </script>
