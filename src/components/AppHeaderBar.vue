@@ -11,7 +11,7 @@
         
       <span>
         <!-- <img :src=" authUser.profile_pic " alt="Profile image " /> -->
-        <img src="/images/Images.png" alt="Profile image " />
+        <!-- <img src="/images/Images.png" alt="Profile image " /> -->
       </span>
     </div>
 </template>
