@@ -1,17 +1,15 @@
 
 <template>
     <div class="running-course">
-        <div class="carousel-body d-flex flex-column gap-3">
             
-            <div v-for="lesson in lessons" @click="$router.push({name: 'app-lesson-detail', params: {id: lesson.id}})" class="item-1 d-flex align-items-center border rounded my-2 p-2">
-                <!-- <div class="image"><img src="/images/Rectangle 3463364.png" class="d-block w-75" alt="..."></div> -->
-                <div class="text">
+            <div v-for="lesson in lessons" @click="$router.push({name: 'app-lesson-detail', params: {id: lesson.id}})" class="item-1 d-flex align-items-center border rounded my-4">
+                <div class="image"><img :src="lesson.cover_image" class="d-block h-20" alt="..."></div>
+                <div class="text p-4">
                     <h2>{{ lesson.title }}</h2>
                     <div class="d-flex align-items-center justify-content-between"></div>
                 </div>
             </div>
 
-        </div>
     </div>
 </template>
 <script lang="ts">
