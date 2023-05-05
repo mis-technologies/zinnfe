@@ -45,8 +45,7 @@
 <script lang="ts">
 // @ts-nocheck
 import { QuizService } from '../services';
-import { useAuthStore } from '../../store/auth';
-
+import { useAuthStore } from '../store';
 export default {
 
 
