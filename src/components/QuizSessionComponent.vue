@@ -60,10 +60,10 @@ export default {
     },
     props: {
         quiz_id: {
-            type: Number,
+          
         },
         level: {
-            type: String,
+          
         },
         lesson_id: {
         },
@@ -106,8 +106,8 @@ export default {
                 let query = {}
 
                 if(this.quiz_id) query.quiz_id = this.quiz_id
-                // if(this.level) query.level = this.level
-                // if(this.lesson_id) query.lesson_id = this.lesson_id
+                if(this.level) query.level = this.level
+                if(this.lesson_id) query.lesson_id = this.lesson_id
 
                 QuizService.startQuizSession(query).then((res)=>{
                     console.log(res)

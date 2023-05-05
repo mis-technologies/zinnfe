@@ -7,29 +7,23 @@
             </div>
             <span>Get to know you</span>
         </div>
-        <div class="progress-container">
-            <div class="progress" role="progressbar" aria-label="Example 1px high" aria-valuenow="25" aria-valuemin="0"
-                aria-valuemax="100" style="height: 1px">
-                <div class="progress-bar" style="width: 25%"></div>
-            </div>
-            <div class="progress" role="progressbar" aria-label="Example 15px high" aria-valuenow="25" aria-valuemin="0"
-                aria-valuemax="100" style="height: 15px">
-                <div class="progress-bar" style="width: 25%"></div>
-            </div>
-        </div>
+
+
+        
         <div class="cyb-heading">
             <span>How much do you know about cybersecurity?</span>
         </div>
         <div class="button-choice d-flex flex-column">
 
-            <button v-for="level_answer in level_answers"  @click.prevent="selectAnswer($event)" ref="ans" class="d-flex align-items-center px-5 justify-content-start">
+            <button v-for="level_answer in level_answers"  @click.prevent="selectAnswer($event, level_answer)" ref="ans" class="d-flex align-items-center px-5 justify-content-start">
                {{ level_answer.text }}
+              
             </button>
-           
-           
-
         </div>
-        <button class="btn-continue btn" onclick="btnNext2()">Continue</button>
+        <button style="display: block" class="btn-continue btn"  @click="submitQuizResponse()" >
+            Continue
+            <span v-if="!selected_level" class="block text-sm text-red">Please choose an answer</span>
+        </button>
     </div>
 </template>
 
@@ -48,12 +42,13 @@ export default {
     data() {
         return {
             authUser: {},
-            no_answer_selected: false,
+            selected_level: null,
+            no_level_selected: false,
             level_answers: [
-                { text: 'I am new to the cyber space', level: 'beginner'},
-                { text: 'Slightly aware', level: 'junior'},
-                { text: 'I am intermediate', level: 'intermediate'},
-                { text: 'I am quite the expert', level: 'expert'}
+                { id: 1, text: 'I am new to the cyber space', level: 'beginner'},
+                { id: 2, text: 'Slightly aware', level: 'junior'},
+                { id: 3, text: 'I am intermediate', level: 'intermediate'},
+                { id: 4, text: 'I am quite the expert', level: 'expert'}
             ]
         }
     },
@@ -62,13 +57,21 @@ export default {
     },
     methods: {
          //select answer
-         selectAnswer( event: any){
-            
-            // this.$refs['ans'].map(el => el.classList.remove('active'));
+         selectAnswer( event: any, level_answer: any){
+            this.selected_level = level_answer.level
             this.$refs['ans'].map(el => el.classList.remove('active'));
             event.target.classList.toggle('active')
         },
+
+        submitQuizResponse(){
+            if(!this.selected_level){
+                return false
+            }
+            this.$router.push({name: 'zinn-selected-level', query: {level: this.selected_level}}) 
+        }
     }
 }
 </script>
+
+
 

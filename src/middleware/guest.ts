@@ -12,7 +12,7 @@ export default function guestMiddleware({next, to, from}){
         console.log('next: ', next)
         
         return next({
-            name: 'app'
+            name: 'app-home'
         })
     }
 

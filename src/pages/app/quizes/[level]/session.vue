@@ -1,6 +1,6 @@
 
 <template>
-    <QuizSessionComponent level="level" quiz_id="quiz_id" ></QuizSessionComponent>
+    <QuizSessionComponent :level="level" :quiz_id="quiz_id" ></QuizSessionComponent>
 </template>
 
 

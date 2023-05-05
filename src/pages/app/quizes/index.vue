@@ -34,43 +34,7 @@
       </div>
     </div>
 
-    <!-- <div class="hero d-flex justify-content-between position-relative" id="quiz-section4"
-      onclick="location.href='quiz.html';">
-      <div class="quiz-text d-flex flex-column align-items-start">
-        <h2 class="text-white">Intermediate's quiz</h2>
-        <span class="border rounded mt-4">
-          <i class="fa-solid fa-check text-light fs-3 p-3"></i>
-        </span>
-      </div>
-      <div class="image d-flex flex-row-reverse">
-        <img src="/images/Medical Book (1).png" class="w-20" alt="" />
-      </div>
-    </div>
-    <div class="hero d-flex justify-content-between position-relative" id="quiz-section"
-      onclick="location.href='quiz.html';">
-      <div class="quiz-text d-flex flex-column align-items-start">
-        <h2 class="text-white">Expert's quiz</h2>
-        <span class="border rounded mt-4">
-          <i class="fa-solid fa-lock text-light fs-3 p-3"></i>
-        </span>
-      </div>
-      <div class="image d-flex flex-row-reverse">
-        <img src="/images/Medical Book.png" class="w-20" alt="" />
-      </div>
-    </div> -->
-
-    <!-- <div class="hero d-flex justify-content-between position-relative" id="quiz-section"
-      onclick="location.href='quiz.html';">
-      <div class="quiz-text d-flex flex-column align-items-start">
-        <h2 class="text-white">Master's quiz</h2>
-        <span class="border rounded mt-4">
-          <i class="fa-solid fa-lock text-light fs-3 p-3"></i>
-        </span>
-      </div>
-      <div class="image d-flex flex-row-reverse">
-        <img src="/images/Bookmark Folder.png" class="w-20" style="rotate: -20deg" />
-      </div>
-    </div> -->
+  
 
 
   </div>
