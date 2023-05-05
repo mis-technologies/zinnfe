@@ -30,7 +30,7 @@ export default  {
         return await apiRequest('auth/email/resend-code', { method: 'POST', body: payload })
     },
 
-    async socialAuth(payload: SocialAuthPayload) {
+    async socialAuth(payload: any) {
         return await apiRequest('auth/social/login', { method: 'POST', body: payload })
     },
 
