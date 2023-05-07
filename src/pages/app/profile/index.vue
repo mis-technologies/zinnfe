@@ -10,13 +10,13 @@
                         <p class="fs-4 fw-bold">Total Points</p>
                         <p class="fs-4 fw-bold border rounded-pill px-3 text">4</p>
                     </span></div>
-               
+
                 <div class="description my-2"><span class="d-flex justify-content-between text-light">
                         <p class="fs-4 fw-bold">Level</p>
                         <p class="fs-4 fw-bold border rounded-pill px-3 text">Beginner</p>
                     </span></div>
-            </div><a class="btn w-full border text-white fw-bold fs-2 rounded my-2 py-2">View Progress</a><a
-                class="btn w-full border text-white fw-bold fs-2 rounded my-2 py-2">View Quize Results</a>
+            </div><a @click="$router.push({name: 'app-profile-progress'})" class="btn w-full border text-white fw-bold fs-2 rounded my-2 py-2">View Progress</a>
+            <!-- <a class="btn w-full border text-white fw-bold fs-2 rounded my-2 py-2">View Quize Results</a> -->
         </div>
     </div>
 </template>
