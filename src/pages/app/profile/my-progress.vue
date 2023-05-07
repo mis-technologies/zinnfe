@@ -13,7 +13,7 @@
     <!-- ongoing course -->
     <section class="my-20">
       <div class="title">
-        <span class="text-sm">All Courses</span>
+        <span class="text-sm">My Progress</span>
       </div>
 
       <div class="row row-cols-2 row-cols-md-2 g-4">

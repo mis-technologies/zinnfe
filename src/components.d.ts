@@ -18,5 +18,6 @@ declare module '@vue/runtime-core' {
     RouterView: typeof import('vue-router')['RouterView']
     UserFooter: typeof import('./components/UserFooter.vue')['default']
     UserHeader: typeof import('./components/UserHeader.vue')['default']
+    UserListComponent: typeof import('./components/UserListComponent.vue')['default']
   }
 }

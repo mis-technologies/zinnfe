@@ -6,14 +6,13 @@
    
 
     
-    <div class="hero d-flex top-10 align-items-center justify-content-between position-relative" id="quiz-section2"
-      onclick="location.href='letsPlay.html';">
+    <div class="hero d-flex top-10 align-items-center justify-content-between position-relative" id="quiz-section2" @click="$router.push({name: 'app-challenge-users'})">
       <div class="quiz-text">
         <h2 class="text-white">Create Quiz</h2>
         <p class="text-white fw-light fs-3">
           Participate in challenges with other players.
         </p>
-        <button class="btn rounded-pill px-4 text-primary bg-white">
+        <button @click="$router.push({name: 'app-challenge-users'})" class="btn rounded-pill px-4 text-primary bg-white">
           Find users
         </button>
       </div>

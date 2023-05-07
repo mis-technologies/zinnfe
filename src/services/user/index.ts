@@ -10,4 +10,9 @@ export default  {
         return await apiRequest(`users/${username}`, { method: 'GET'})
     },
 
+    async getUsers(query: any) {
+        let qu = new window.URLSearchParams(query).toString()
+        return await apiRequest(`users?${qu}`, { method: 'GET' })
+    },
+
 }
