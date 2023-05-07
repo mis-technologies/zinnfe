@@ -70,6 +70,8 @@ app.use(Router);
 
 app.use(pinia);
 
+
+
 app.component(VueCountdown.name, VueCountdown);
 
 app.mount('#app');

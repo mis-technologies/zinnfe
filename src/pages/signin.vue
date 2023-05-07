@@ -60,6 +60,9 @@
 import { AuthService } from '../services';
 import { useAuthStore } from '~/store/auth';
 
+import { toast } from 'vue3-toastify';
+import 'vue3-toastify/dist/index.css';
+
 export default {
   
   data(){
@@ -79,7 +82,10 @@ export default {
               this.$router.push('/zinn') // user choose between interactive mode or none interactive mode
              
           }).catch( (err) =>{
-              console.log(err)
+            toast(err.data.message, {
+              autoClose: 4000,
+              hideProgressBar: true
+            }); // ToastOptions
           })  
       } catch (error) {
           

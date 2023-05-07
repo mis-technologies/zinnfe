@@ -8,7 +8,6 @@
       <div v-if="title" class="h-10" style="overflow: hidden;">
        <p class="fs-3"> {{ title }}</p>
       </div>
-      
       <img @click.prevent="$router.push({name: 'zinn'})" class="avatar h-10" src="/images/zinnbot.png" alt="Profile image " />
     </div>
 </template>
