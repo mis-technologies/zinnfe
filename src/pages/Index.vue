@@ -17,7 +17,7 @@
                     Welcome <img src="/images/welcome.png" alt="" />
                 </h1>
                 <p class="text-white onboarding-content__description mb-3">
-                    Lorem ipsum dolor sit amet consectetur. Nisi sollicitudin vel commodo malesuada eget eu placerat platea egestas. Ipsum morbi.
+                    ZINN is security awareness chatbot mobile application that educates users on online security behavior
                 </p>
                 <div class="button pt-3">
                     <a class="btn signUp me-3" href="/signup" >Signup </a>

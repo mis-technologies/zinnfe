@@ -8,27 +8,28 @@
         <div class="trophy-content">
             <img src="/images/trophy-cup.png" class="w-50 mx-auto">
             
-            <div v-if="quiz_session_result.is_single_user" class="trophy-content__details px-5 py-4">
+            <!-- <div v-if="quiz_session_result.is_single_user" class="trophy-content__details px-5 py-4"></div> -->
+            <div class="trophy-content__details px-5 py-4">
                 <p class="text-center text-light fs-1 fw-bold">Summary</p>
                 
                 <div class="description my-2">
                     <span class="d-flex justify-content-between text-light">
                         <p class="fs-4 fw-bold">Total Scores</p>
-                        <p class="fs-4 fw-bold border rounded-pill px-3 text">{{ quiz_session_result.myresults.score }}</p>
+                        <p class="fs-4 fw-bold border rounded-pill px-3 text">{{ quiz_session_result?.myresults?.score }}</p>
                     </span>
                 </div>
 
                 <div class="description my-2">
                     <span class="d-flex justify-content-between text-light">
                         <p class="fs-4 fw-bold">Correct Answers</p>
-                        <p class="fs-4 fw-bold border rounded-pill px-3 text">{{ quiz_session_result.myresults.score }}</p>
+                        <p class="fs-4 fw-bold border rounded-pill px-3 text">{{ quiz_session_result?.myresults?.score }}</p>
                     </span>
                 </div>
 
                 <div class="description my-2">
                     <span class="d-flex justify-content-between text-light">
                         <p class="fs-4 fw-bold">Total Questions</p>
-                        <p class="fs-4 fw-bold border rounded-pill px-3 text">{{quiz_session_result.myresults.summary.length}}</p>
+                        <p class="fs-4 fw-bold border rounded-pill px-3 text">{{quiz_session_result?.myresults?.summary.length}}</p>
                     </span>
                 </div>
 

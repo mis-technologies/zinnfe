@@ -37,7 +37,6 @@
             </div>
         </div>
 
-
         <button v-if="challenge.user_complete" @click="startChallenge()" class="btn btn-continue">View Results</button>
         <button v-else  @click="startChallenge()" class="btn btn-continue">Start</button>
     </div>
@@ -48,7 +47,7 @@
         layout: 'zinn'
         tomiddleware: ['auth']
         requiresAuth: true
-    name: 'app-challenge-ready'
+    name: 'app-challenge-result'
 </route>
 
 <script lang="ts">

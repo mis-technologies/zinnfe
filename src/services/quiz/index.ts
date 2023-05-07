@@ -15,21 +15,30 @@ export default  {
         return await apiRequest(`quizes/sessions/start`, { method: 'POST', body: payload})
     },
 
-    async submitQuizSession(session: any, payload: any) {
-        return await apiRequest(`quizes/sessions/${session}/submit`, { method: 'POST', body: payload})
+    async submitQuizSession(sessionId: any, payload: any) {
+        return await apiRequest(`quizes/sessions/${sessionId}/submit`, { method: 'POST', body: payload})
     },
 
-    async getQuizSessionResult(session: any) {
-        return await apiRequest(`quizes/sessions/${session}/result`, { method: 'GET'})
+    async getQuizSessionResult(sessionId: any) {
+        return await apiRequest(`quizes/sessions/${sessionId}/result`, { method: 'GET'})
+    },
+
+
+    async getQuizSession(sessionId: any) {
+        return await apiRequest(`quizes/sessions/${sessionId}`, { method: 'GET'})
     },
 
 
     async createChallenge(payload: any) {
-        return await apiRequest(`quizes/challenge`, { method: 'POST', body: payload})
+        return await apiRequest(`quizes/challenges`, { method: 'POST', body: payload})
     },
 
     async getChallenge(challengeId: any) {
-        return await apiRequest(`quizes/challenge/${challengeId}`, { method: 'GET'})
+        return await apiRequest(`quizes/challenges/${challengeId}`, { method: 'GET'})
+    },
+
+    async getChallenges() {
+        return await apiRequest(`quizes/challenges`, { method: 'GET'})
     },
 
 

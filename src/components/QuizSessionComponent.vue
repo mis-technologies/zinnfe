@@ -4,10 +4,21 @@
         <div v-if="questions.length > 0">
             <div class="heading fixed-top px-4 py-2  mb-4 d-flex align-items-center justify-content-between">
                 
-                <div class="d-flex align-items-start align-items-center mx-2 me-auto mt-3">
+                <!-- <div class="d-flex align-items-start align-items-center mx-2 me-auto mt-3">
                     <img :src=" authUser.profile_pic " class="rounded w-20" alt="Profile image" />
                     <h3 class="fs-2 fw-bolder">{{authUser.name}}</h3>
+                </div> -->
+
+                <div class="cyber-icon">
+                    <a href="" @click.prevent="$router.back()"><i class="fa-solid fa-arrow-left"></i></a>
                 </div>
+
+               <div class="flex align-items-center">
+               
+                <img :src=" authUser.profile_pic " class="rounded w-20" alt="Profile image" />
+                <h3 class="fs-2 fw-bolder">{{authUser.firstname}}</h3>
+               </div>
+
                 <div class="d-flex flex-column align-items-center mt-3">
                     <i class="fa-solid fa-clock fs-1"></i>
                     <!-- time provided to this component is in seconds 2 * 60 = 2 mins -->
@@ -68,6 +79,8 @@ export default {
         },
         lesson_id: {
         },
+        session_id: {
+        },
        
     },
     data() {
@@ -92,13 +105,14 @@ export default {
     },
 
     
-
     mounted() {
-       
-    },
-
-    created() {
-      this.startQuizSession()
+     
+        console.log(this.session_id)
+      if(this.session_id){
+        this.getQuizSession()
+      }else{
+        this.startQuizSession()
+      }
     },
     methods: {
 
@@ -130,9 +144,29 @@ export default {
             }
         },
 
-        nextQuestion() {
+        getQuizSession(){
+            try {
 
-            
+                QuizService.getQuizSession(this.session_id).then((res)=>{
+                    console.log(res)
+                    this.quiz_session = res.data
+                    this.questions = res.data.questions
+                    this.current_question = this.questions[0]
+                    this.session_started = true
+
+                    this.quiz_id
+                    this.current_question = this.questions[0]
+                    this.total_questions = this.questions.length
+                    this.current_question_count = 1
+                }).catch( (err) =>{
+                    console.log(err)
+                })  
+            } catch (error) {
+             
+            }
+        },
+
+        nextQuestion() {            
             this.$refs['answer'].map(el => el.classList.remove('selected'));
 
             //if the answer is not selected prevent next question

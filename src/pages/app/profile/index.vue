@@ -15,8 +15,10 @@
                         <p class="fs-4 fw-bold">Level</p>
                         <p class="fs-4 fw-bold border rounded-pill px-3 text">Beginner</p>
                     </span></div>
-            </div><a @click="$router.push({name: 'app-profile-progress'})" class="btn w-full border text-white fw-bold fs-2 rounded my-2 py-2">View Progress</a>
-            <!-- <a class="btn w-full border text-white fw-bold fs-2 rounded my-2 py-2">View Quize Results</a> -->
+            </div>
+            <a @click="$router.push({name: 'app-profile-progress'})" class="btn w-full border text-white fw-bold fs-2 rounded my-2 py-2">View Progress</a>
+            <a @click="$router.push({name: 'app-profile-challenges'})" class="btn w-full border text-white fw-bold fs-2 rounded my-2 py-2">View Challenges</a>
+            <a class="btn w-full border text-white fw-bold fs-2 rounded my-2 py-2">View Quiz Sessions</a>
         </div>
     </div>
 </template>
