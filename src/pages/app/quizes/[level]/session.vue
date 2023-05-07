@@ -24,6 +24,4 @@
         tomiddleware: ['auth']
         requiresAuth: true
     name: 'quiz-session'
-
- 
 </route>

@@ -1,7 +1,7 @@
 
 <template>
   <div class="home-container position-relative">
-    <AppHeaderBar></AppHeaderBar>
+    <AppHeaderBar class="bg-white"></AppHeaderBar>
 
     <div class="hero d-flex align-items-center justify-content-between">
       <div class="text w-2/3">

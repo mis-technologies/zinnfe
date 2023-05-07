@@ -1,13 +1,6 @@
 
 <template>
-    <div class="video-wrapper fixed-top px-4 pt-4 bg-white position-relative d-flex align-items-center">
-        <div class="cyber-icon">
-            <a href="" @click.prevent="$router.back()"><i class="fa-solid fa-arrow-left"></i></a>
-        </div>
-        <div>
-            <span>{{ lesson.title }}</span>
-        </div>
-    </div>
+     <AppHeaderBar class="bg-white" :title=" 'Leson titil Leson titilLeson titilLeson titilLeson titilLeson titilLeson titilLeson titilLeson titil' "></AppHeaderBar>
     <div class="videowrapper position-relative mt-5 pt-5">
         <iframe :src="lesson.url" frameborder="0 " class="position-absolute" allowfullscreen></iframe>
     </div>

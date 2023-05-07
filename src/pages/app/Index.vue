@@ -1,14 +1,7 @@
 
 <template>
   <div class="home-container position-relative">
-    <div class="heading fixed-top px-4 py-2 bg-white mb-4 d-flex align-items-center justify-content-between">
-      <h2>Hi {{ authUser.firstname }} 👍</h2>
-      <span>
-        <!-- <img :src=" authUser.profile_pic " alt="Profile image " /> -->
-        <img @click.prevent="$router.push({name: 'zinn' })" src="/images/Image.png" alt="Profile image " />
-      </span>
-    </div>
-
+    <AppHeaderBar :title="'Hi ' + authUser.firstname  + ' 👍'"  class="bg-white"></AppHeaderBar>
     <div class="hero d-flex align-items-center justify-content-between">
       <div class="text w-2/3">
         <span>Start a quiz or challenge a friend?!</span>

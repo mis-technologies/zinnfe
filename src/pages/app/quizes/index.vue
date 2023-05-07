@@ -1,11 +1,9 @@
 
 <template>
   <div class="home-container position-relative">
-    <AppHeaderBar></AppHeaderBar>
+    <AppHeaderBar class="bg-white"></AppHeaderBar>
 
    
-
-    
     <div class="hero d-flex top-10 align-items-center justify-content-between position-relative" id="quiz-section2" @click="$router.push({name: 'app-challenge-users'})">
       <div class="quiz-text">
         <h2 class="text-white">Create Quiz</h2>

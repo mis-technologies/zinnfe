@@ -2,13 +2,14 @@
 <template>
     <div class="home-container" style="height: 100vh">
 
-
-          <div class="video-wrapper fixed-top px-4 pt-4 bg-white position-relative d-flex align-items-center">
+          <!-- <div class="video-wrapper fixed-top px-4 pt-4 bg-white position-relative d-flex align-items-center">
               <div class="cyber-icon">
                   <a href="#" @click.prevent=" $router.back()" ><i class="fa-solid fa-arrow-left"></i></a>
               </div>
               <span>{{ course.title }}</span>
-          </div>
+          </div> -->
+
+          <AppHeaderBar class="bg-white" :title="course.title"></AppHeaderBar>
 
 
         

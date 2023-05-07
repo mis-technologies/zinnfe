@@ -1,27 +1,42 @@
 
 <template>
     <div class="start-section d-flex align-items-center justify-content-between flex-column next">
+
         <div class="start-section__header">
-            <span>{{ authUser.firstname }} vs {{ user.firstname }}</span>
+            <AppHeaderBar :title="authUser.firstname + ' vs ' + user.firstname "></AppHeaderBar>
+
+            <!-- <span></span> -->
         </div>
         <div class="">
             <img src="/images/hiclipart.com.png" class="w-50 mx-auto">
             <div>
                 <form action="">
-                    <div class="my-2">
-                        <label class="text-white" for="">Level</label>
-                        <select class="form-control" name="" id="">
-                            <option value="">Easy</option>
+                    <div class="my-4">
+                        <label class="text-white fs-3" for="">Level</label>
+                        <select v-model="form.level" class="form-control" name="" id="">
+                            <option value="beginner">Beginner</option>
+                            <option value="intermediate">Intermediate</option>
+                            <option value="advance">Advance</option>
                         </select>
                     </div>
 
-                    <div class="my-2">
-                        <label class="text-white" for="">Duration</label>
-                        <select class="form-control form-input" name="" id="">
-                            <option value="">5 Mins</option>
-                            <option value="">10 Mins</option>
-                            <option value="">15 Mins</option>
-                            <option value="">20 Mins</option>
+                    <div class="my-4">
+                        <label class="text-white fs-3" for="">Duration</label>
+                        <select v-model="form.duration" class="form-control form-input" name="" id="">
+                            <option value="5">5 Mins</option>
+                            <option value="10">10 Mins</option>
+                            <option value="15">15 Mins</option>
+                            <option value="20">20 Mins</option>
+                        </select>
+                    </div>
+
+                    <div class="my-4">
+                        <label class="text-white fs-3" for="">Questions</label>
+                        <select v-model="form.questions" class="form-control form-input" name="" id="">
+                            <option value="5">5</option>
+                            <option value="10">10</option>
+                            <option value="15">15</option>
+                            <option value="20">20</option>
                         </select>
                     </div>
                 </form>
@@ -30,7 +45,7 @@
                 <!-- <p class="text-white">Click  start to create a challenge</p> -->
             </div>
         </div>
-        <button @click="startQuizSession()" class="btn btn-continue">Continue</button>
+        <button @click="createChallenge()" class="btn btn-continue">Continue</button>
     </div>
 </template>
 
@@ -46,6 +61,7 @@
 // @ts-nocheck
 import { UserService } from '/@/services'
 import { useAuthStore } from '/@/store/auth';
+import { QuizService } from '/@/services';
 
 export default {
 
@@ -54,7 +70,11 @@ export default {
             quiz_levels: [],
             user: {},
             authUser: {},
-            form: {}
+            form: {
+                level: 'beginner',
+                duration: 5,
+                questions: 5,
+            }
         }
     },
     mounted() {
@@ -67,15 +87,13 @@ export default {
         })
     },
     methods: {
-        startQuizSession() {
-            this.$router.push({ name: 'quiz-session', params: { level: this.$route.query.level } })
-        },
-
-        challengeUser() {
-            const data = { user_id: 400, level: 'easy', questions: 30, duration: 1 }
-            UserService.getUsers(data).then(res => {
-                this.$router.push({ name: 'app-challenge-ready' })
-                this.users = res.data
+    
+        createChallenge() {
+            this.form.user_id = this.user.id
+            console.log(this.form)
+            QuizService.createChallenge(this.form).then(res => {
+                console.log(res)
+                this.$router.push({ name: 'app-challenge-ready', query: {challengeId: res.data.id} })
             }).catch(err => {
                 console.log(err)
             })
@@ -83,9 +101,6 @@ export default {
 
 
     }
-
-
-
 }
 </script>
 

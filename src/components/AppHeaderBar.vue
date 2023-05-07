@@ -1,18 +1,15 @@
 
 <template>
-   <div class="heading fixed-top px-4 py-2 bg-white mb-4 d-flex align-items-center justify-content-between">
-      <!-- <button class="btn btn-light" @click.prevent="$router.back()">
-        <i class="fa-solid fa-arrow-left"><em class="ml-2">Back</em></i>
-      </button> -->
-
+   <div class="heading fixed-top px-4 gap-5 py-2 mb-4 d-flex align-items-center justify-content-between" :class="class" >
         <div class="cyber-icon">
             <a href="" @click.prevent="$router.back()"><i class="fa-solid fa-arrow-left"></i></a>
         </div>
         
-      <span>
-        <!-- <img :src=" authUser.profile_pic " alt="Profile image " /> -->
-        <!-- <img src="/images/Images.png" alt="Profile image " /> -->
-      </span>
+      <div v-if="title" class="h-10" style="overflow: hidden;">
+       <p class="fs-3"> {{ title }}</p>
+      </div>
+      
+      <img @click.prevent="$router.push({name: 'zinn'})" class="avatar h-10" src="/images/Image.png" alt="Profile image " />
     </div>
 </template>
 
@@ -21,7 +18,7 @@
 import { useAuthStore } from '../store/auth';
 export default {
 
-    props: ['title'],
+    props: ['title', 'class'],
     data(){
         return{
         authUser: {}
