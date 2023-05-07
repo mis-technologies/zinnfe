@@ -12,9 +12,9 @@
 
         <div class="trophy-content__details px-5 py-4 w-100">
 
-            <p class="text-center text-light fs-1 fw-bold">Challenge Results</p>
+            <img src="/images/trophy-cup.png" class="w-50 mb-10 mx-auto">
 
-            <!-- <img src="/images/ask-icon.png" class="w-50 mb-10 mx-auto"> -->
+            <p class="text-center text-light fs-1 fw-bold">Challenge Results</p>
 
             <div v-for="result in challenge.quiz_session?.results" class="description p-5 my-2" style="background: #ffffff2b;">
               

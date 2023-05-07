@@ -1,6 +1,6 @@
 
 <template>
-    <div class="start-section d-flex align-items-center justify-content-between flex-column next">
+    <div class="start-section d-flex align-items-center justify-content-center flex-column next">
 
         <div class="start-section__header">
             <!-- <span>{{ challenge.user?.firstname }} vs {{ challenge.to_user?.firstname }} </span> -->
@@ -31,15 +31,26 @@
                 </span>
             </div>
 
-            <div class="description mt-10">
+            
+            <div v-if="authUser.id == challenge.user_id" class="description mt-10">
                 <p v-if="challenge.user_complete" class="text-red text-center fs-1">You have already completed this challenge, click on view results</p>
                 <p v-else class="text-white text-center fs-1">Click on start to begin your challenge.</p>
+                <div class="mt-10">
+                    <button v-if="challenge.user_complete " @click="viewChallengeResult()" class="btn btn-continue">View Results</button>
+                    <button v-else  @click="startChallenge()" class="btn btn-continue">Start</button>
+                </div>
+            </div>
+
+            <div v-if="authUser.id == challenge.to_user_id" class="description mt-10">
+                <p v-if="challenge.to_user_complete" class="text-red text-center fs-1">You have already completed this challenge, click on view results</p>
+                <p v-else class="text-white text-center fs-1">Click on start to begin your challenge.</p>
+
+               <div class="mt-10">
+                <button v-if="challenge.to_user_complete " @click="viewChallengeResult()" class="btn btn-continue">View Results</button>
+                <button v-else  @click="startChallenge()" class="btn btn-continue">Start</button>
+               </div>
             </div>
         </div>
-
-
-        <button v-if="challenge.user_complete" @click="startChallenge()" class="btn btn-continue">View Results</button>
-        <button v-else  @click="startChallenge()" class="btn btn-continue">Start</button>
     </div>
 </template>
 
@@ -83,6 +94,10 @@ export default {
         startChallenge() {
             let session_id = this.challenge.quiz_session_id
             this.$router.push({name: 'app-challenge-session',  query: {sessionId: session_id}})        
+        },
+        viewChallengeResult() {
+            let session_id = this.challenge.quiz_session_id
+            this.$router.push({name: 'app-challenge-result',  query: {challengeId: this.challengeId}})        
         }
     }
 }
