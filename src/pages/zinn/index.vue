@@ -10,7 +10,7 @@
     </div>
     <div class="container-body d-flex align-items-center justify-content-center flex-column w-100 mt-4">
       <div class="image-wrapper">
-        <img src="/images/Image.png">
+        <img class="w-50" src="/images/zinnbot.png">
       </div>
       <p class="text-center">
         Say hello to <span>ZINN</span>, your Ai buddy, <br> Welcome on board!

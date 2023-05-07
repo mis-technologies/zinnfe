@@ -9,7 +9,7 @@
        <p class="fs-3"> {{ title }}</p>
       </div>
       
-      <img @click.prevent="$router.push({name: 'zinn'})" class="avatar h-10" src="/images/Image.png" alt="Profile image " />
+      <img @click.prevent="$router.push({name: 'zinn'})" class="avatar h-10" src="/images/zinnbot.png" alt="Profile image " />
     </div>
 </template>
 
