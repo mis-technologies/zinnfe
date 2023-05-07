@@ -13,7 +13,7 @@
             <i class="fa-solid fa-clipboard-question nav-icon"></i>
             <span class="nav-text">Quiz</span>
         </a>
-        <a href="#" class="nav-link d-flex align-items-center justify-content-center flex-column">
+        <a href="#"  @click.prevent="$router.push({name: 'app-profile'})"  class="nav-link d-flex align-items-center justify-content-center flex-column" :class=" ($route.name == 'app-profile' || $route.name == 'app-profile-progress') ? 'nav-link__active' : '' ">
             <i class="fa-regular fa-user nav-icon"></i>
             <span class="nav-text">Profile</span>
         </a>

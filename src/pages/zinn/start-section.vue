@@ -51,9 +51,9 @@ export default {
             no_answer_selected: false,
             level_answers: [
                 { text: 'I am new to the cyber space', level: 'beginner'},
-                { text: 'Slightly aware', level: 'junior'},
+                { text: 'Slightly aware', level: 'beginner'},
                 { text: 'I am intermediate', level: 'intermediate'},
-                { text: 'I am quite the expert', level: 'expert'}
+                { text: 'I am quite the expert', level: 'advance'}
             ]
         }
     },
