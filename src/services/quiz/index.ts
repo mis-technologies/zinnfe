@@ -24,4 +24,10 @@ export default  {
     },
 
 
+    async challengeUser(session: any, payload: any) {
+        
+        return await apiRequest(`quizes/challenge`, { method: 'POST', body: payload})
+    },
+
+
 }
