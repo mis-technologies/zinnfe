@@ -25,19 +25,19 @@
         <input autocomplete="false" name="hidden" type="text" style="display:none;" />
        
         <div class="d-flex w-100 input-field">
-          <input v-model="payload.email" type="email" class="form-control mb-4" id="email" placeholder="Email address" required />
+          <input v-model="payload.email" type="email" class="form-control mb-4" id="email" placeholder="Email address" autocomplete="off"  required />
         </div>
 
         <div class="d-flex w-100 input-field">
-          <input  v-model="payload.firstname" type="text" class="form-control mb-4" id="firstname" placeholder="Firstname" required />
+          <input  v-model="payload.firstname" type="text" class="form-control mb-4" id="firstname" placeholder="Firstname" autocomplete="off"  required />
         </div>
 
         <div class="d-flex w-100 input-field">
-          <input  v-model="payload.lastname" type="text" class="form-control mb-4" id="lastname" placeholder="Lastname" required />
+          <input  v-model="payload.lastname" type="text" class="form-control mb-4" id="lastname" placeholder="Lastname" autocomplete="off"  required />
         </div>
         
         <div class="w-100 input-field position-relative">
-          <input  v-model="payload.password" type="password" class="form-control" id="password" placeholder="Password" required />
+          <input  v-model="payload.password" type="password" class="form-control" id="password" placeholder="Password" autocomplete="off"  required />
           <span class="eye" onclick="myFunction()">
             <i id="eye1" class="fa-regular fa-eye"></i>
             <i id="eye2" class="fa-regular fa-eye-slash"></i>
@@ -45,7 +45,7 @@
         </div>
 
         <div class="w-100 input-field position-relative my-4">
-          <input  v-model="payload.password_confirmation" type="password" class="form-control" id="password" placeholder="Password" required />
+          <input  v-model="payload.password_confirmation" type="password" class="form-control" id="password" placeholder="Password" autocomplete="off"  required />
           <span class="eye" onclick="myFunction()">
             <i id="eye1" class="fa-regular fa-eye"></i>
             <i id="eye2" class="fa-regular fa-eye-slash"></i>
