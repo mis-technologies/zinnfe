@@ -20,7 +20,8 @@
     <div class="authform signin-authform authformScale">
       <h1 class="my-4">Sign in</h1>
       <p class="mb-4">Signin to your account</p>
-      <form @submit.prevent="loginUser()" class="form d-flex flex-column align-items-start justify-content-between" aria-hidden="true">
+      <form  @submit.prevent="loginUser()" class="form d-flex flex-column align-items-start justify-content-between" aria-hidden="true" autocomplete="off">
+        <input autocomplete="false" name="hidden" type="text" style="display:none;"></input>
 
         <div class="d-flex w-100 input-field">
           <input v-model="payload.email" type="email" class="form-control mb-4" id="email" placeholder="Email address" required />

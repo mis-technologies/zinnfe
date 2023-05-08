@@ -21,7 +21,8 @@
     <div class="authform signup-authform authformScale">
       <h1 class="my-4">Sign up</h1>
       <p class="mb-4">Create an account to get started with us</p>
-      <form  @submit.prevent="registerUser()" class="form d-flex flex-column align-items-start justify-content-between" aria-hidden="true">
+      <form  @submit.prevent="registerUser()" class="form d-flex flex-column align-items-start justify-content-between" aria-hidden="true" autocomplete="off">
+        <input autocomplete="false" name="hidden" type="text" style="display:none;"></input>
        
         <div class="d-flex w-100 input-field">
           <input v-model="payload.email" type="email" class="form-control mb-4" id="email" placeholder="Email address" required />

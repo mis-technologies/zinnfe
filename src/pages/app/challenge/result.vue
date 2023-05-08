@@ -25,10 +25,12 @@
                 </span>
             </div>
 
+
+            <p v-if="otheruser_hasnotplayed" class="text-center text-red fs-1 fw-bold mt-10">Waiting for the other user to complete challenge</p>
+
         </div>
 
-        <button v-if="challenge.user_complete" @click="startChallenge()" class="btn btn-continue">View Results</button>
-        <button v-else @click="startChallenge()" class="btn btn-continue">Start</button>
+       <div class=""></div>
     </div>
 </template>
 
@@ -55,6 +57,7 @@ export default {
             authUser: {},
             challengeId: '',
             isWon: false,
+            otheruser_hasnotplayed: true,
 
         }
     },
@@ -64,22 +67,19 @@ export default {
 
         QuizService.getChallenge(this.challengeId).then(res => {
             this.challenge = res.data
-
-            // res.data.quiz_session?.results.map((res) => {
-            //     console.log(res)
-            // });
-            Array(res.data.quiz_session?.results).forEach((res) => {
-                console.log(res)
-            })
-
+            let myresult = res.data.quiz_session?.results.find(res => (res.user.id == this.authUser.id));
+            let otherresult = res.data.quiz_session?.results.find(res => (res.user.id != this.authUser.id));
+            if(otherresult){
+                this.otheruser_hasnotplayed = false;
+                if(myresult.score > otherresult.score) {
+                    this.isWon = true
+                }
+            }
+            
         }).catch(err => {
             console.log(err)
         })
 
-
-       
-
-        // if() {}
     },
     methods: {
         startChallenge() {
