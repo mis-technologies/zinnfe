@@ -11,11 +11,12 @@
 
 
         <div class="trophy-content__details px-5 py-4 w-100">
-
-            <img src="/images/trophy-cup.png" class="w-50 mb-10 mx-auto">
+            <div v-if="isWon">
+                <p class="text-center text-light fs-1 fw-bold">You won</p>
+                <img src="/images/trophy-cup.png" class="w-50 mb-10 mx-auto">
+            </div>
 
             <p class="text-center text-light fs-1 fw-bold">Challenge Results</p>
-
             <div v-for="result in challenge.quiz_session?.results" class="description p-5 my-2" style="background: #ffffff2b;">
               
                 <span class="d-flex justify-content-between text-light">
@@ -52,7 +53,8 @@ export default {
         return {
             challenge: {},
             authUser: {},
-            challengeId: ''
+            challengeId: '',
+            isWon: false,
 
         }
     },
@@ -62,10 +64,22 @@ export default {
 
         QuizService.getChallenge(this.challengeId).then(res => {
             this.challenge = res.data
-            console.log(res)
+
+            // res.data.quiz_session?.results.map((res) => {
+            //     console.log(res)
+            // });
+            Array(res.data.quiz_session?.results).forEach((res) => {
+                console.log(res)
+            })
+
         }).catch(err => {
             console.log(err)
         })
+
+
+       
+
+        // if() {}
     },
     methods: {
         startChallenge() {
