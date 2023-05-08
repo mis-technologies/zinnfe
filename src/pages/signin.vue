@@ -28,7 +28,7 @@
 
         <div class="w-100 input-field position-relative">
           <input v-model="payload.password" type="password" class="form-control" id="password" placeholder="Password" role="presentation" autocomplete="none"  required />
-          <span class="eye" onclick="myFunction()">
+          <span class="eye" @click="viewPassword()">
             <i id="eye1" class="fa-regular fa-eye"></i>
             <i id="eye2" class="fa-regular fa-eye-slash"></i>
           </span>
@@ -91,6 +91,22 @@ export default {
           
       }
 
+    },
+
+    viewPassword() {
+      var inPut = document.getElementById("password");
+      var hide1 = document.getElementById("eye1");
+      var hide2 = document.getElementById("eye2");
+
+      if (inPut.type === "password") {
+        inPut.type = "text";
+        hide1.style.display = "block";
+        hide2.style.display = "none";
+      } else {
+        inPut.type = "password";
+        hide1.style.display = "none";
+        hide2.style.display = "block";
+      }
     }
   }
 }

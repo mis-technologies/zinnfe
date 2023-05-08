@@ -37,17 +37,17 @@
         
         <div class="w-100 input-field position-relative">
           <input  v-model="payload.password" type="password" class="form-control" id="password" placeholder="Password" role="presentation" autocomplete="off"  required />
-          <span class="eye" onclick="myFunction()">
+          <span class="eye" @click="viewPassword()">
             <i id="eye1" class="fa-regular fa-eye"></i>
             <i id="eye2" class="fa-regular fa-eye-slash"></i>
           </span>
         </div>
 
         <div class="w-100 input-field position-relative my-4">
-          <input  v-model="payload.password_confirmation" type="password" class="form-control" id="password" placeholder="Password" role="presentation" autocomplete="off"  required />
-          <span class="eye" onclick="myFunction()">
-            <i id="eye1" class="fa-regular fa-eye"></i>
-            <i id="eye2" class="fa-regular fa-eye-slash"></i>
+          <input  v-model="payload.password_confirmation" type="password" class="form-control" id="password_confirmation" placeholder="Password" role="presentation" autocomplete="off"  required />
+          <span class="eye" @click="viewConfirmPassword()">
+            <i id="eye3" class="fa-regular fa-eye"></i>
+            <i id="eye4" class="fa-regular fa-eye-slash"></i>
           </span>
         </div>
 
@@ -103,7 +103,40 @@ export default {
           
       }
 
+    },
+
+    viewPassword() {
+      var inPut = document.getElementById("password");
+      var hide1 = document.getElementById("eye1");
+      var hide2 = document.getElementById("eye2");
+
+      if (inPut.type === "password") {
+        inPut.type = "text";
+        hide1.style.display = "block";
+        hide2.style.display = "none";
+      } else {
+        inPut.type = "password";
+        hide1.style.display = "none";
+        hide2.style.display = "block";
+      }
+    },
+
+    viewConfirmPassword() {
+      var inPut = document.getElementById("password_confirmation");
+      var hide1 = document.getElementById("eye3");
+      var hide2 = document.getElementById("eye4");
+
+      if (inPut.type === "password") {
+        inPut.type = "text";
+        hide1.style.display = "block";
+        hide2.style.display = "none";
+      } else {
+        inPut.type = "password";
+        hide1.style.display = "none";
+        hide2.style.display = "block";
+      }
     }
+
   }
 }
 </script>
