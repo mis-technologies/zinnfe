@@ -1,14 +1,7 @@
 
 <template>
   <div class="home-container position-relative">
-    <div class="heading fixed-top px-4 py-3 bg-white mb-4 d-flex align-items-center justify-content-between">
-      <AppHeaderBar></AppHeaderBar>
-      <span>
-        <img src="/images/Image.png " alt="Profile image " />
-      </span>
-    </div>
-
-
+    <AppHeaderBar></AppHeaderBar>
 
     <!-- ongoing course -->
     <section class="my-20">

@@ -1,12 +1,8 @@
 
 <template>
   <div class="home-container position-relative">
-    <div class="heading fixed-top px-4 py-3 bg-white mb-4 d-flex align-items-center justify-content-between">
-      <AppHeaderBar></AppHeaderBar>
-      <span>
-        <img src="/images/Image.png " alt="Profile image " />
-      </span>
-    </div>
+    <AppHeaderBar></AppHeaderBar>
+
 
 
     <!-- ongoing course -->
@@ -14,7 +10,7 @@
       <div class="title">
         <span class="text-sm">My Challenges</span>
       </div>
-      <div class="row row-cols-2 row-cols-md-2 g-4">
+      <div  v-if="challenges.length > 0" class="row row-cols-2 row-cols-md-2 g-4">
         <div @click="$router.push({name: 'app-challenge-ready', query: {challengeId: challenge.id}})" v-for="challenge in challenges" class="col cursor-pointer">
           <div class="card d-flex align-items-center justify-content-between flex-column border-0 text-center">
             <img :src="challenge.user?.profile_pic" class="card-img-top w-25" alt="...">
@@ -27,6 +23,10 @@
             </div>
           </div>
         </div>
+      </div>
+      <div v-else class="d-flex text flex-column align-items-center mt-40">
+          <h2 class="mx-auto">No challenge yet</h2>
+          <a @click="$router.push({name: 'app-challenge-users'})" class="btn w-full border btn btn-primary text-white fw-bold fs-2 rounded my-2 py-2">Challenge a Friend</a>
       </div>
     </section>
 

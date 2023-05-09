@@ -11,7 +11,7 @@
                    </div>
                     <div class="d-flex align-items-center justify-content-between">
                         <span class="mr-2">Points: {{ user.points }}</span>
-                        <span class="mx-2">Level: {{ (user.level).charAt(0).toUpperCase() + (user.level).slice(1)}} </span>
+                        <span v-if="user?.level.name" class="mx-2">Level: {{ (user?.level.name).charAt(0).toUpperCase() + (user?.level.name).slice(1)}} </span>
                     </div>
                 </div>
             </div>

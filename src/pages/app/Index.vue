@@ -18,11 +18,9 @@
         <a class="text-lg mx-2" href="" @click.prevent="$router.push({name: 'app-courses'})">View All</a>
       </div>
 
-      <div class="progress-container position-relative p-4">
+      <div @click.prevent="$router.push({name: 'app-courses'})" class="progress-container position-relative p-4">
         <h5 class="text-white">Expert level</h5>
         <h3 class="text-white">Intro to cyber security</h3>
-       
-      
         <p class="text-white">
           Number od Lessons : <span class="fw-bold">10 lessons</span>
         </p>
