@@ -8,12 +8,12 @@
                 <p class="text-center text-light fs-1 fw-bold">Statistics</p>
                 <div class="description my-2"><span class="d-flex justify-content-between text-light">
                         <p class="fs-4 fw-bold">Total Points</p>
-                        <p class="fs-4 fw-bold border rounded-pill px-3 text">4</p>
+                        <p class="fs-4 fw-bold border rounded-pill px-3 text">{{ user.points }}</p>
                     </span></div>
 
                 <div class="description my-2"><span class="d-flex justify-content-between text-light">
                         <p class="fs-4 fw-bold">Level</p>
-                        <p class="fs-4 fw-bold border rounded-pill px-3 text">Beginner</p>
+                        <p class="fs-4 fw-bold border rounded-pill px-3 text">{{ user.level }}</p>
                     </span></div>
             </div>
             <a @click="$router.push({name: 'app-profile-progress'})" class="btn w-full border text-white fw-bold fs-2 rounded my-2 py-2">View Progress</a>
@@ -34,17 +34,20 @@
   
 <script lang="ts">
 // @ts-nocheck
+import { UserService } from '/@/services';
 import { useAuthStore } from '/@/store';
 export default {
     data() {
         return {
-            authUser: {}
+            authUser: {},
+            user: {}
         }
     },
     mounted() {
         this.authUser = useAuthStore().authUser
-
-        console.log(this.authUser)
+        UserService.getMe().then(res => {
+            this.user = res.data
+        })
     }
 }
 </script>

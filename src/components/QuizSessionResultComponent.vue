@@ -22,7 +22,7 @@
                 <div class="description my-2">
                     <span class="d-flex justify-content-between text-light">
                         <p class="fs-4 fw-bold">Correct Answers</p>
-                        <p class="fs-4 fw-bold border rounded-pill px-3 text">{{ quiz_session_result?.myresults?.score }}</p>
+                        <p class="fs-4 fw-bold border rounded-pill px-3 text">{{ quiz_session_result?.myresults?.correct }}</p>
                     </span>
                 </div>
 
