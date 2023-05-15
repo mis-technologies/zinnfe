@@ -9,9 +9,11 @@
   },
   "dependencies": {
     "@chenfengyuan/vue-countdown": "2",
+    "laravel-echo": "^1.15.1",
     "ofetch": "^1.0.1",
     "pinia": "^2.0.33",
     "pinia-plugin-persistedstate": "^3.1.0",
+    "pusher-js": "^8.0.2",
     "vue": "3",
     "vue-i18n": "^9.2.2",
     "vue-router": "^4.1.6",

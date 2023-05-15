@@ -18,12 +18,10 @@
         <a class="text-lg mx-2" href="" @click.prevent="$router.push({name: 'app-courses'})">View All</a>
       </div>
 
-      <div @click.prevent="$router.push({name: 'app-courses'})" class="progress-container position-relative p-4">
-        <h5 class="text-white">Expert level</h5>
-        <h3 class="text-white">Intro to cyber security</h3>
-        <p class="text-white">
-          Number od Lessons : <span class="fw-bold">10 lessons</span>
-        </p>
+      <div v-if="courses.length > 0" @click.prevent="$router.push({name: 'app-courses'})" class="progress-container position-relative p-4">
+        <h5 class="text-white">{{ courses[0].level?.name }} level</h5>
+        <h3 class="text-white">{{ courses[0].title }}</h3>
+        <p class="text-white"> Number of Lessons: <span class="fw-bold">{{ courses[0].lesson_count }} lessons</span> </p>
         <span>
           <p>ongoing</p>
         </span>
@@ -58,14 +56,23 @@
 <script lang="ts">
 // @ts-nocheck
 import { useAuthStore } from '../../store/auth';
+import { ContentService } from '/@/services';
 export default {
   data(){
     return{
-      authUser: {}
+      authUser: {},
+      courses: []
     }
   },
   mounted(){
     this.authUser = useAuthStore().authUser
+    ContentService.getCourses().then(res => {
+        this.courses = res.data
+        console.log(res)
+    }).catch(err => {
+        console.log(err)
+    })
+
 
     console.log(this.authUser)
   }

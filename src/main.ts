@@ -15,13 +15,8 @@ import { Router } from '/@/router';
 import VueCountdown from '@chenfengyuan/vue-countdown';
 
 
-
-
 const pinia = createPinia()
 pinia.use(piniaPluginPersistedstate)
-
-
-
 
 
 // middleware pipeline
