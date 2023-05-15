@@ -18,7 +18,10 @@
             </div>
             <a @click="$router.push({name: 'app-profile-progress'})" class="btn w-full border text-white fw-bold fs-2 rounded my-2 py-2">View Progress</a>
             <a @click="$router.push({name: 'app-profile-challenges'})" class="btn w-full border text-white fw-bold fs-2 rounded my-2 py-2">View Challenges</a>
-            <a class="btn w-full border text-white fw-bold fs-2 rounded my-2 py-2">View Quiz Sessions</a>
+            <!-- <a class="btn w-full border text-white fw-bold fs-2 rounded my-2 py-2">Notifications</a> -->
+
+            <hr class="border my-5">
+            <a @click="$router.push({name: 'app-change-password'})" class="btn w-full border text-white fw-bold fs-2 rounded my-2 py-2">Change Password</a>
         </div>
     </div>
 </template>

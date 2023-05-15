@@ -15,6 +15,11 @@ export default  {
         return await apiRequest('auth/password/reset', { method: 'POST', body: payload })
     },
 
+
+    async changePassword(payload: Object) {
+        return await apiRequest('auth/password/change', { method: 'POST', body: payload })
+    },
+
     logoutUser(payload: Object) {
         return apiRequest('auth/logout', payload)
     },
