@@ -6,9 +6,9 @@
    
     <div class="hero d-flex top-10 align-items-center justify-content-between position-relative" id="quiz-section2" @click="$router.push({name: 'app-challenge-users'})">
       <div class="quiz-text">
-        <h2 class="text-white">Create Quiz</h2>
+        <h2 class="text-white">Challenge a friend</h2>
         <p class="text-white fw-light fs-3">
-          Participate in challenges with other players.
+          Participate in challenges with other users.
         </p>
         <button @click="$router.push({name: 'app-challenge-users'})" class="btn rounded-pill px-4 text-primary bg-white">
           Find users

@@ -29,7 +29,7 @@
       
 
         <div class="d-flex align-self-end my-5">
-          <router-link class="btn text-dark"  to="/signup">Sigin</router-link>
+          <router-link class="btn text-dark"  to="/signin">Sigin</router-link>
         </div>
 
         <button type="submit" class="btn btn-primary" >

@@ -39,7 +39,7 @@
           <router-link class="btn text-dark"  to="/signup">Signup</router-link>
         </div>
         <div>
-          <router-link class="btn text-dark"  to="/forgot-password">Forgot Password ?</router-link>
+          <router-link class="btn my-4 text-dark"  to="/forgot-password">Forgot Password ?</router-link>
         </div>
 
         <button type="submit" class="btn btn-primary" >
