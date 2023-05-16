@@ -3,33 +3,35 @@
     <div class="home-container position-relative">
         <AppHeaderBar :title="'Change Password'" class="bg-white"></AppHeaderBar>
         <div class="authform signin-authform authformScale">
-            <h1 class="my-4">Change Password</h1>
+            <h1 class="my-4">Reset Password</h1>
             <p class="mb-4">Enter new password</p>
             <form @submit.prevent="resetPassword()" class="form d-flex flex-column align-items-start justify-content-between"
                 aria-hidden="true" autocomplete="none">
 
                 <div class="w-100 input-field position-relative">
-                    <input v-model="form.old_password" type="password" class="form-control" id="password" placeholder="Old Password"
+                    <input v-model="form.code" type="text" class="form-control" id="password" placeholder="Verification Code"
                         role="presentation" autocomplete="off" required />
-                    <span class="eye" @click="viewPassword()">
-                        <i id="eye1" class="fa-regular fa-eye"></i>
-                        <i id="eye2" class="fa-regular fa-eye-slash"></i>
-                    </span>
                 </div>
 
                 <div class="w-100 input-field position-relative my-4">
-                    <input v-model="form.new_password" type="password" class="form-control"
-                        id="password_confirmation" placeholder="New Password" role="presentation" autocomplete="off" required />
-                    <span class="eye" @click="viewConfirmPassword()">
+                    <input v-model="form.email" type="email" class="form-control"
+                        id="email" placeholder="Email" role="presentation" autocomplete="off" required />
+                </div>
+
+                <div class="w-100 input-field position-relative my-4">
+                    <input v-model="form.password" type="password" class="form-control"
+                        id="password" placeholder="New Password Confirmation" role="presentation" autocomplete="off" required />
+                    <span class="eye" @click="viewNewPasswordConfirm()">
                         <i id="eye3" class="fa-regular fa-eye"></i>
                         <i id="eye4" class="fa-regular fa-eye-slash"></i>
                     </span>
                 </div>
 
+
                 <div class="w-100 input-field position-relative my-4">
-                    <input v-model="form.new_password_confirmation" type="password" class="form-control"
-                        id="new_password_confirmation" placeholder="New Password Confirmation" role="presentation" autocomplete="off" required />
-                    <span class="eye" @click="viewNewPasswordConfirm()">
+                    <input v-model="form.password_confirmation" type="password" class="form-control"
+                        id="password_confirmation" placeholder="Confirm Password" role="presentation" autocomplete="off" required />
+                    <span class="eye" @click="viewConfirmPassword()">
                         <i id="eye3" class="fa-regular fa-eye"></i>
                         <i id="eye4" class="fa-regular fa-eye-slash"></i>
                     </span>
@@ -47,10 +49,10 @@
   
 <route lang="yaml">
     meta:
-      layout: 'app'
-      tomiddleware: ['auth']
-      requiresAuth: true
-    name: 'app-change-password'
+        layout: 'app'
+        tomiddleware: ['guest']
+        requiresAuth: false
+    name: 'reset-password'
    
   </route>
   
@@ -65,7 +67,9 @@ export default {
     data() {
         return {
             authUser: {},
-            form: {}
+            form: {
+                email: this.$route.query.email
+            }
         }
     },
     mounted() {
@@ -73,11 +77,13 @@ export default {
     },
     methods: {
         resetPassword(){
-            AuthService.changePassword(this.form).then((res)=>{
+            AuthService.resetPassword(this.form).then((res)=>{
                 toast(res.message, {
                     autoClose: 4000,
                     hideProgressBar: true,
                 }); // ToastOptions
+              
+               this.$router.push({name: 'signin', query: {email: this.form.email}}) // user choose between interactive mode or none interactive mode
                this.form = {}
             }).catch( (err) =>{
                 toast(err.data.message, {
