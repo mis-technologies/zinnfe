@@ -1,6 +1,6 @@
 
 <template>
-     <AppHeaderBar class="bg-white" :title=" 'Leson titil Leson titilLeson titilLeson titilLeson titilLeson titilLeson titilLeson titilLeson titil' "></AppHeaderBar>
+     <AppHeaderBar class="bg-white" :title=" lesson.title "></AppHeaderBar>
     <div class="videowrapper position-relative mt-5 pt-5">
         <iframe :src="lesson.url" frameborder="0 " class="position-absolute" allowfullscreen></iframe>
     </div>
