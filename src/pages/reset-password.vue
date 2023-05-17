@@ -1,13 +1,14 @@
 
 <template>
     <div class="home-container position-relative">
-        <AppHeaderBar :title="'Change Password'" class="bg-white"></AppHeaderBar>
+        <AppHeaderBar :title="'Reset Password'" class="bg-white"></AppHeaderBar>
+        
         <div class="authform signin-authform authformScale">
-            <h1 class="my-4">Reset Password</h1>
+            <p class="mb-4">A verification has been sent to your email</p>
+
             <p class="mb-4">Enter new password</p>
             <form @submit.prevent="resetPassword()" class="form d-flex flex-column align-items-start justify-content-between"
                 aria-hidden="true" autocomplete="none">
-
                 <div class="w-100 input-field position-relative">
                     <input v-model="form.code" type="text" class="form-control" id="password" placeholder="Verification Code"
                         role="presentation" autocomplete="off" required />

@@ -1,7 +1,7 @@
 
 <template>
   <div class="home-container position-relative">
-    <AppHeaderBar class="bg-white"></AppHeaderBar>
+    <AppHeaderBar title="Let’s play" class="bg-white"></AppHeaderBar>
 
    
     <div class="hero d-flex top-10 align-items-center justify-content-between position-relative" id="quiz-section2" @click="$router.push({name: 'app-challenge-users'})">
@@ -43,7 +43,7 @@
     layout: 'app'
     tomiddleware: ['auth']
     requiresAuth: true
- 
+  name: app-quizes
 </route>
 
 

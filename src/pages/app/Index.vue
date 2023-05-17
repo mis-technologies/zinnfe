@@ -2,7 +2,7 @@
 <template>
   <div class="home-container position-relative">
     <AppHeaderBar :title="'Hi ' + authUser.firstname  + ' 👍'"  class="bg-white"></AppHeaderBar>
-    <div class="hero d-flex align-items-center justify-content-between">
+    <div @click="$router.push({name: 'app-quizes'})" class="hero d-flex align-items-center justify-content-between">
       <div class="text w-2/3">
         <span>Start a quiz or challenge a friend?</span>
         <p>Be a part of an ongoing quiz competition or start a quiz</p>
