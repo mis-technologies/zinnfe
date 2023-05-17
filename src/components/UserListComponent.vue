@@ -3,7 +3,7 @@
     <div class="running-course">
             
         <div v-for="user in users" class="">
-            <div class=" p-4 d-flex align-items-center justify-content-between ">
+            <div class="border my-4 rounded p-4 d-flex align-items-center justify-content-between ">
 
                 <div class="d-flex">
                     <img :src="user.profile_pic" class="d-block h-20 rounded-pill" alt="...">
