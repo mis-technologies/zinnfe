@@ -33,23 +33,29 @@
 
             
             <div v-if="authUser.id == challenge.user_id" class="description mt-10">
-                <p v-if="challenge.user_complete" class="text-red text-center fs-1">You have already completed this challenge, click on view results</p>
-                <p v-else class="text-white text-center fs-1">Click on start to begin your challenge.</p>
-                <div class="mt-10">
-                    <button v-if="challenge.user_complete " @click="viewChallengeResult()" class="btn btn-continue">View Results</button>
-                    <button v-else  @click="startChallenge()" class="btn btn-continue">Start</button>
+                <div v-if="challenge.user_complete == 1">
+                    <p class="text-red text-center fs-1">You have already completed this challenge, click on view results</p>
+                    <button @click="viewChallengeResult()" class="btn btn-continue">View Results</button>
+                </div>
+
+                <div v-else class="text-white text-center fs-1">
+                    <p class="text-white text-center fs-1">Click on start to begin your challenge.</p>
+                    <button  @click="startChallenge()" class="btn btn-continue">Start</button>
                 </div>
             </div>
 
-            <div v-if="authUser.id == challenge.to_user_id" class="description mt-10">
-                <p v-if="challenge.to_user_complete" class="text-red text-center fs-1">You have already completed this challenge, click on view results</p>
-                <p v-else class="text-white text-center fs-1">Click on start to begin your challenge.</p>
+            <div v-else class="description mt-10">
+               <div v-if="challenge.to_user_complete == 1">
+                    <p class="text-red text-center fs-1">You have already completed this challenge, click on view results</p>
+                    <button @click="viewChallengeResult()" class="btn btn-continue">View Results</button>
+                </div>
 
-               <div class="mt-10">
-                <button v-if="challenge.to_user_complete " @click="viewChallengeResult()" class="btn btn-continue">View Results</button>
-                <button v-else  @click="startChallenge()" class="btn btn-continue">Start</button>
-               </div>
+                <div v-else class="text-white text-center fs-1">
+                    <p class="text-white text-center fs-1">Click on start to begin your challenge.</p>
+                    <button  @click="startChallenge()" class="btn btn-continue">Start</button>
+                </div>
             </div>
+
         </div>
     </div>
 </template>
