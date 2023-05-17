@@ -16,8 +16,8 @@
     <!-- ongoing course -->
     <section>
 
-      <div class="title">
-        <span class="text-sm">Online Users</span>
+      <div class="mt-20">
+       
       </div>
 
       <UserListComponent list="online" ></UserListComponent>
