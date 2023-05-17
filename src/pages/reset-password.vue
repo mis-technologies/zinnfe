@@ -6,7 +6,7 @@
         <div class="authform signin-authform authformScale">
             <p class="mb-4">A verification has been sent to your email</p>
 
-            <p class="mb-4">Enter new password</p>
+           
             <form @submit.prevent="resetPassword()" class="form d-flex flex-column align-items-start justify-content-between"
                 aria-hidden="true" autocomplete="none">
                 <div class="w-100 input-field position-relative">
@@ -18,6 +18,8 @@
                     <input v-model="form.email" type="email" class="form-control"
                         id="email" placeholder="Email" role="presentation" autocomplete="off" required />
                 </div>
+
+                <p class="my-4">Enter new password</p>
 
                 <div class="w-100 input-field position-relative my-4">
                     <input v-model="form.password" type="password" class="form-control"
