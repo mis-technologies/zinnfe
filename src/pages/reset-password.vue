@@ -10,7 +10,7 @@
             <form @submit.prevent="resetPassword()" class="form d-flex flex-column align-items-start justify-content-between"
                 aria-hidden="true" autocomplete="none">
                 <div class="w-100 input-field position-relative">
-                    <input v-model="form.code" type="text" class="form-control" id="password" placeholder="Verification Code"
+                    <input v-model="form.code" type="text" class="form-control" id="code" placeholder="Verification Code"
                         role="presentation" autocomplete="off" required />
                 </div>
 
@@ -24,7 +24,7 @@
                 <div class="w-100 input-field position-relative my-4">
                     <input v-model="form.password" type="password" class="form-control"
                         id="password" placeholder="New Password Confirmation" role="presentation" autocomplete="off" required />
-                    <span class="eye" @click="viewNewPasswordConfirm()">
+                    <span class="eye" @click="viewNewPassword()">
                         <i id="eye3" class="fa-regular fa-eye"></i>
                         <i id="eye4" class="fa-regular fa-eye-slash"></i>
                     </span>
@@ -34,7 +34,7 @@
                 <div class="w-100 input-field position-relative my-4">
                     <input v-model="form.password_confirmation" type="password" class="form-control"
                         id="password_confirmation" placeholder="Confirm Password" role="presentation" autocomplete="off" required />
-                    <span class="eye" @click="viewConfirmPassword()">
+                    <span class="eye" @click="viewNewPasswordConfirm()">
                         <i id="eye3" class="fa-regular fa-eye"></i>
                         <i id="eye4" class="fa-regular fa-eye-slash"></i>
                     </span>
@@ -97,7 +97,7 @@ export default {
           
         },
 
-        viewPassword() {
+        viewNewPassword() {
             var inPut = document.getElementById("password");
             var hide1 = document.getElementById("eye1");
             var hide2 = document.getElementById("eye2");
@@ -113,23 +113,9 @@ export default {
             }
         },
 
-        viewConfirmPassword() {
-            var inPut = document.getElementById("password_confirmation");
-            var hide1 = document.getElementById("eye3");
-            var hide2 = document.getElementById("eye4");
-
-            if (inPut.type === "password") {
-                inPut.type = "text";
-                hide1.style.display = "block";
-                hide2.style.display = "none";
-            } else {
-                inPut.type = "password";
-                hide1.style.display = "none";
-                hide2.style.display = "block";
-            }
-        },
+      
         viewNewPasswordConfirm() {
-            var inPut = document.getElementById("new_password_confirmation");
+            var inPut = document.getElementById("password_confirmation");
             var hide1 = document.getElementById("eye3");
             var hide2 = document.getElementById("eye4");
 
