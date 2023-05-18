@@ -46,12 +46,13 @@ export default {
     delete window.localStorage.useAuthStore;
     
     const preloaderWrapper = document.querySelector(".preloader-wrapper");
+    preloaderWrapper?.classList.add("fade-out-animation");
 
-    setTimeout(() =>{
-      preloaderWrapper?.classList.add("fade-out-animation");
-    }, 500)
+    // setTimeout(() =>{
+    //   preloaderWrapper?.classList.add("fade-out-animation");
+    // }, 500)
    
-    console.log('ad', preloaderWrapper)
+  
 
   }
 }
