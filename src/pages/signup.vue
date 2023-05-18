@@ -99,12 +99,21 @@ export default {
               this.$router.push('/zinn') // user choose between interactive mode or none interactive mode
              
           }).catch( (err) =>{
-              console.log(err)
+              Array(err.data.errors).forEach(element => {
+                let errors = Object.values(element)
+                errors.forEach(error => {
+                    toast(error, {
+                    autoClose: 10000,
+                    hideProgressBar: true
+                  }); 
+                });
+              
+              });
 
-              toast(err.data.message, {
-                autoClose: 4000,
-                hideProgressBar: true
-              }); // ToastOptions
+              // toast(err.data.message, {
+              //   autoClose: 4000,
+              //   hideProgressBar: true
+              // }); 
           })  
       
 

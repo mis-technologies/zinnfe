@@ -10,8 +10,9 @@ export default  {
         return await apiRequest(`lessons/${lessonId}`, { method: 'GET' })
     },
 
-    async getCourses() {
-        return await apiRequest(`courses`, { method: 'GET' })
+    async getCourses(query: any) {
+        let qu = new window.URLSearchParams(query).toString()
+        return await apiRequest(`courses?${qu}`, { method: 'GET' })
     },
 
     async getCourse(coursesId: any) {

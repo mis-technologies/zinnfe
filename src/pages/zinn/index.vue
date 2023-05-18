@@ -13,11 +13,11 @@
         <img class="w-50" src="/images/zinnbot.png">
       </div>
       <p class="text-center">
-        Say hello to <span>ZINN</span>, your Ai buddy, <br> Welcome on board!
+        Hi <b>{{ authUser.firstname }}</b>! Say hello to <span>ZINN</span>, your AI buddy, Welcome on board!
       </p>
       <hr>
       <div class="text-wrapper d-flex align-items-center justify-content-center">
-        <span>Are you sure to go on short ride with zinn?</span>
+        <p>Do you want to go on short ride with zinn?</p>
       </div>
     </div>
     <div class="d-flex justify-content-center">

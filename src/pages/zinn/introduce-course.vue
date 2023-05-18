@@ -13,7 +13,7 @@
                 <img class="w-50" src="/images/zinnbot.png">
             </div>
             <p class="text-center px-1">
-                Hi <b>{{ authUser.firstname }}</b>  - How about you take an introductory level course  ?
+                Hi <b>{{ authUser.firstname }}</b>  - How about you take an introductory  course  ?
             </p>
             <hr>
             <div class="text-wrapper  text-center">

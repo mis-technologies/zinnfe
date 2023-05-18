@@ -45,7 +45,7 @@ export default {
         this.$router.push({name: 'zinn-introduce-course', params: {level: this.$route.query.level }})
       }
     //  this.$router.push({name: 'quiz-session', params: {level: this.$route.query.level }})
-     this.$router.push({name: 'zinn-introduce-course', params: {level: this.$route.query.level }})
+     this.$router.push({name: 'zinn-introduce-course', query: {level: this.$route.query.level }})
     }
   }
 }
