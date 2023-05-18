@@ -49,7 +49,7 @@ export default {
 
     setTimeout(() =>{
       preloaderWrapper?.classList.add("fade-out-animation");
-    }, 3000)
+    }, 500)
    
     console.log('ad', preloaderWrapper)
 
