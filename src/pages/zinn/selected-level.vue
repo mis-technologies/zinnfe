@@ -31,15 +31,21 @@ export default {
   
   data(){
     return {
-      quiz_levels: []
+      quiz_levels: [],
+      selected_level: null
     }
   },
   mounted() {
-    
+     this.selected_level = this.$route.query.level;
    },
   methods: {
     startQuizSession(){
-     this.$router.push({name: 'quiz-session', params: {level: this.$route.query.level }})
+      if(this.selected_level == 'beginner'){
+        console.log(this.selected_level)
+        this.$router.push({name: 'zinn-introduce-course', params: {level: this.$route.query.level }})
+      }
+    //  this.$router.push({name: 'quiz-session', params: {level: this.$route.query.level }})
+     this.$router.push({name: 'zinn-introduce-course', params: {level: this.$route.query.level }})
     }
   }
 }
