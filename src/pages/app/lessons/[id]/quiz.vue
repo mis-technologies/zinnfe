@@ -50,7 +50,8 @@ export default {
   },
   mounted() {
 
-        ContentService.getLesson(7).then(res => {
+        let lessonId = this.$route.params.id
+        ContentService.getLesson(lessonId).then(res => {
             console.log(res)
             this.lesson = res.data
         }).catch(err => {
