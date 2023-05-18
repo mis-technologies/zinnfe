@@ -76,6 +76,8 @@
 // @ts-nocheck
 import { AuthService } from '../services';
 import { useAuthStore } from '~/store/auth';
+import { toast } from 'vue3-toastify';
+
 
 export default {
   
@@ -88,8 +90,7 @@ export default {
   methods: {
     registerUser(){
 
-      console.log(this.payload)
-      try {
+    
           AuthService.registerUser(this.payload).then((res)=>{
               const authStore = useAuthStore();
               authStore.setAuthUser(res.data.user)
@@ -98,10 +99,13 @@ export default {
              
           }).catch( (err) =>{
               console.log(err)
+
+              toast(err.data.message, {
+                autoClose: 4000,
+                hideProgressBar: true
+              }); // ToastOptions
           })  
-      } catch (error) {
-          
-      }
+      
 
     },
 
