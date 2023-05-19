@@ -16,7 +16,7 @@ export const useEventStore = defineStore('eventStore', {
 
     
   persist: {
-    paths: ['hasAlert', 'isBusy'],
+    paths: ['hasAlert', 'isBusy', 'newChallenge'],
   },
 
 

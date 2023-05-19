@@ -1,7 +1,7 @@
 <template>
    
     <main class="homepage-wrapper" >
-        <RouterView/>
+         <RouterView :key="key"/>
         <AppBottomBar></AppBottomBar>
 
        
@@ -10,17 +10,35 @@
 
 <script lang="ts">
 import { SocketInstance } from '../services' 
-import { toast } from 'vue3-toastify';
+// import { toast } from 'vue3-toastify';
 import 'vue3-toastify/dist/index.css'; 
 import { useEventStore } from '/@/store';
 import { useAuthStore } from '/@/store';
+
+// import { storeToRefs } from 'pinia'
+// import { watch } from 'vue'
 
 export default {
 
     data(){
         return{
-            authuser: {}
+            authuser: {},
+            key: Math.random()
         }
+    },
+
+
+    setup(){
+        // const eventStore = useEventStore()
+        // const { newChallenge } = storeToRefs(eventStore)
+        // let  key = Math.random()
+
+        // watch(newChallenge, () => {
+        //     console.log(key)
+        //     console.log('isLoggedIn ref changed, do something!')
+        //     key = Math.random()
+        //     console.log(key)
+        // })
     },
     mounted(){
         let instance = SocketInstance.getSocketInstance()
@@ -32,42 +50,16 @@ export default {
             eventStore.hasAlert = true
             eventStore.newChallenge = e.data
 
-           
-            // let zinImage = document.getElementById('zinn_image');
-            // zinImage.classList.add("zinn-alert");
-
-            let mess = `<div class="notify-wrapper"> <p class="notify-text" >${e.data.message}</p> </div>`
-        
-            toast(mess, {
-              autoClose: 2000,
-              hideProgressBar: true,
-              dangerouslyHTMLString: true,
-              closeOnClick: false
-
-            });
+           this.key = Math.random()
+            // toast(e.data.message, {
+            //   autoClose: 1000,
+            //   hideProgressBar: true,
+            //   closeOnClick: true
+            // });
         })
     }
 }
 </script>
 
 <style>
-
-    .zinn-alert {
-        border: solid red 2px
-    }
-
-    .notify-text {
-        text-align: center;
-    }
-
-    .notify-wrapper {
-        width: 100%;
-       display: flex;
-       flex-direction: column;
-    }
-
-    .notify-button {
-        margin: auto;
-    }
-
 </style>

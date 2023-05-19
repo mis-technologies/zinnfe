@@ -1,6 +1,6 @@
 
-<template>
-    <div v-if="key" class="heading fixed-top px-4 gap-5 py-2 mb-4 d-flex align-items-center justify-content-between" :class="class">
+<template >
+    <div class="heading fixed-top px-4 gap-5 py-2 mb-4 d-flex align-items-center justify-content-between" :class="class">
         <div class="cyber-icon">
             <a href="" @click.prevent="$router.back()"><i class="fa-solid fa-arrow-left"></i></a>
         </div>
@@ -17,8 +17,7 @@
 // @ts-nocheck
 import { useAuthStore } from '../store/auth';
 import { useEventStore } from '../store';
-import { storeToRefs } from 'pinia'
-import { watch } from 'vue'
+
 
 
 export default {
@@ -32,47 +31,9 @@ export default {
         }
     },
 
-    // setup(){
-
-    //     const eventStore = useEventStore()
-    //     const { newChallenge } = storeToRefs(eventStore)
-    //     let  key = Math.random()
-
-    //     watch(newChallenge, () => {
-    //         console.log(key)
-    //         console.log('isLoggedIn ref changed, do something!')
-    //         key = Math.random()
-    //         console.log(key)
-    //     })
-
-    //     return { key }
-
-    // },
     mounted() {
         this.authUser = useAuthStore().authUser
         this.hasAlert = useEventStore().hasAlert;
-        // this.newChallenge = useEventStore().newChallenge;
-
-        // const { newChallenge } = storeToRefs(useEventStore)
-
-        // console.log(this.newChallenge)
-        // this.key = newChallenge?.challengId ?? Math.random()
-
-
-        const eventStore = useEventStore()
-        const { newChallenge } = storeToRefs(eventStore)
-        let  key = Math.random()
-
-        watch(newChallenge, () => {
-            console.log(key)
-            console.log('isLoggedIn ref changed, do something!')
-            key = Math.random()
-            console.log(key)
-        })
-
-
-        
-
     }
 }
 </script>
@@ -82,7 +43,7 @@ export default {
 .blink-image {
     border: thin solid red;
     border-radius: 10px;
-    height: 40px;
+    height: 30px;
 }
 
 
