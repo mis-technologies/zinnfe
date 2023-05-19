@@ -16,22 +16,21 @@ import { SocketInstance } from '../services'
 import { toast } from 'vue3-toastify';
 import 'vue3-toastify/dist/index.css'; 
 import { useEventStore } from '/@/store';
-
+import { useAuthStore } from '/@/store';
 
 export default {
 
     data(){
         return{
-            
+            authuser: {}
         }
     },
     mounted(){
         let instance = SocketInstance.getSocketInstance()
-       
-        instance.channel('testchannel').listen(".ChallengeNotification", (e) => {
+       let authuser = useAuthStore().authUser
+
+        instance.channel(authuser.email).listen(".ChallengeNotification", (e) => {
           console.log('.ChallengeNotification', e)
-
-
             const eventStore = useEventStore();
             eventStore.hasAlert = true
             eventStore.newChallenge = e.data
