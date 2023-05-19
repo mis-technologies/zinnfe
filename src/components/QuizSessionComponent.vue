@@ -192,16 +192,7 @@ export default {
                 this.is_last_question = true
             }
         },
-        // countDownTimer() {
-        //     if (this.quiz_remaining_time > 0) {
-        //         setTimeout(() => {
-        //             this.quiz_remaining_time -= 1
-        //             this.countDownTimer()
-        //         }, 1000)
-        //     }
-        // },
-
-
+        
         //countdown timer methods
         onCountdownStarted(){
             console.log("onCountdownStarted")
@@ -240,10 +231,17 @@ export default {
                 this.quiz_session.id,
                 this.quiz_responses
             ).then((res)=>{
-                console.log(res)
+              // if challeng route to challenge result page
+
+              if(this.quiz_session.is_single_user){
                 this.$router.push({name: 'quiz-session-result', query: {session_id: this.quiz_session.id }})  
+              }else{
+                let challengeId = this.quiz_session.challenge_id
+                this.$router.push({name: 'app-challenge-result',  query: {challengeId}})        
+              }
+               
             }).catch( (err) =>{
-                console.log(err)
+              
             })  
         }
     }

@@ -6,7 +6,8 @@
         </div>
 
         <div class="trophy-content">
-            <img src="/images/trophy-cup.png" class="w-50 mx-auto">
+            <img v-if="quiz_session_result?.myresults?.is_passed" src="/images/trophy-cup.png" class="w-50 mx-auto">
+            <div v-else  class="mt-30"></div>
             
             <!-- <div v-if="quiz_session_result.is_single_user" class="trophy-content__details px-5 py-4"></div> -->
             <div class="trophy-content__details px-5 py-4">
