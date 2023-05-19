@@ -39,7 +39,7 @@ export default {
             let mess = `<div class="notify-wrapper"> <p class="notify-text" >${e.data.message}</p> </div>`
         
             toast(mess, {
-              autoClose: false,
+              autoClose: 2000,
               hideProgressBar: true,
               dangerouslyHTMLString: true,
               closeOnClick: false
