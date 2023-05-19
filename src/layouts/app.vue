@@ -2,8 +2,9 @@
    
     <main class="homepage-wrapper" >
        
+        <!-- <h2 style="z-index: 9999;" class="text-center waviy"><span>You have a new challenge</span></h2> -->
+
         <RouterView/>
-        <h2 class="text-center">You have New Challenge</h2>
         <AppBottomBar></AppBottomBar>
 
        
@@ -14,18 +15,63 @@
 import { SocketInstance } from '../services' 
 import { toast } from 'vue3-toastify';
 import 'vue3-toastify/dist/index.css'; 
+import { useEventStore } from '/@/store';
+
+
 export default {
+
+    data(){
+        return{
+            
+        }
+    },
     mounted(){
         let instance = SocketInstance.getSocketInstance()
-        
-
+       
         instance.channel('testchannel').listen(".ChallengeNotification", (e) => {
           console.log('.ChallengeNotification', e)
-            toast(e.data.message, {
-              autoClose: 4000,
-              hideProgressBar: true
+
+
+            const eventStore = useEventStore();
+            eventStore.hasAlert = true
+            eventStore.newChallenge = e.data
+
+           
+            // let zinImage = document.getElementById('zinn_image');
+            // zinImage.classList.add("zinn-alert");
+
+            let mess = `<div class="notify-wrapper"> <p class="notify-text" >${e.data.message}</p> </div>`
+        
+            toast(mess, {
+              autoClose: false,
+              hideProgressBar: true,
+              dangerouslyHTMLString: true,
+              closeOnClick: false
+
             });
         })
     }
 }
 </script>
+
+<style>
+
+    .zinn-alert {
+        border: solid red 2px
+    }
+
+    .notify-text {
+        text-align: center;
+    }
+
+    .notify-wrapper {
+        width: 100%;
+       display: flex;
+       flex-direction: column;
+    }
+
+    .notify-button {
+        margin: auto;
+    }
+
+</style>

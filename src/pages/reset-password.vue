@@ -80,7 +80,9 @@ export default {
     },
     methods: {
         resetPassword(){
+            window.$.busyLoadFull('show');
             AuthService.resetPassword(this.form).then((res)=>{
+                window.$.busyLoadFull('hide');
                 toast(res.message, {
                     autoClose: 4000,
                     hideProgressBar: true,
@@ -89,11 +91,19 @@ export default {
                this.$router.push({name: 'signin', query: {email: this.form.email}}) // user choose between interactive mode or none interactive mode
                this.form = {}
             }).catch( (err) =>{
-                toast(err.data.message, {
-                    autoClose: 4000,
-                    hideProgressBar: true,
-                }); // Toast
-            })  
+                window.$.busyLoadFull('hide');
+                // console.log(err)
+                Array(err.data.errors).forEach(element => {
+                    let errors = Object.values(element)
+                    errors.forEach(error => {
+                        toast.error(error, {
+                        autoClose: 10000,
+                        hideProgressBar: true
+                    }); 
+                    });
+                
+                });
+            })
           
         },
 

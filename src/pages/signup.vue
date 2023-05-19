@@ -91,32 +91,29 @@ export default {
   methods: {
     registerUser(){
 
-    
-          AuthService.registerUser(this.payload).then((res)=>{
-              const authStore = useAuthStore();
-              authStore.setAuthUser(res.data.user)
-              authStore.setToken(res.data.token)
-              this.$router.push('/zinn') // user choose between interactive mode or none interactive mode
-             
-          }).catch( (err) =>{
-              Array(err.data.errors).forEach(element => {
-                let errors = Object.values(element)
-                errors.forEach(error => {
-                    toast(error, {
-                    autoClose: 10000,
-                    hideProgressBar: true
-                  }); 
-                });
-              
-              });
+      window.$.busyLoadFull('show');
+      AuthService.registerUser(this.payload).then((res)=>{
+          const authStore = useAuthStore();
+          authStore.setAuthUser(res.data.user)
+          authStore.setToken(res.data.token)
+          window.$.busyLoadFull('hide');
+          this.$router.push('/zinn') // user choose between interactive mode or none interactive mode
+          
+      }).catch( (err) =>{
+          window.$.busyLoadFull('hide');
+          Array(err.data.errors).forEach(element => {
+            let errors = Object.values(element)
+            errors.forEach(error => {
+                toast(error, {
+                autoClose: 10000,
+                hideProgressBar: true
+              }); 
+            });
+          
+          });
+      })  
 
-              // toast(err.data.message, {
-              //   autoClose: 4000,
-              //   hideProgressBar: true
-              // }); 
-          })  
-      
-
+     
     },
 
     viewPassword() {

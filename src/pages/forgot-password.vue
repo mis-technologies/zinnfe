@@ -20,7 +20,7 @@
     <div class="authform signin-authform authformScale">
       <h1 class="my-4">Forgot Password</h1>
       <p class="mb-4">Enter your email to reset your password</p>
-      <form  @submit.prevent="loginUser()" class="form d-flex flex-column align-items-start justify-content-between" aria-hidden="true"  autocomplete="none" >
+      <form  @submit.prevent="forgotPassword()" class="form d-flex flex-column align-items-start justify-content-between" aria-hidden="true"  autocomplete="none" >
 
         <div class="d-flex w-100 input-field">
           <input v-model="form.email" type="email" class="form-control mb-4" id="email" placeholder="Email address" required role="presentation" autocomplete="none"  />
@@ -66,22 +66,18 @@ export default {
   },
   mounted() { },
   methods: {
-    loginUser(){
-
-      try {
-          AuthService.forgotPassword(this.form).then((res)=>{
-            console.log(res)
-              this.$router.push({name: 'reset-password', query: {email: this.form.email}}) // user choose between interactive mode or none interactive mode
-          }).catch( (err) =>{
-            toast(err.data.message, {
-              autoClose: 4000,
-              hideProgressBar: true
-            }); // ToastOptions
-          })  
-      } catch (error) {
-          
-      }
-
+    forgotPassword(){
+      window.$.busyLoadFull('show');
+      AuthService.forgotPassword(this.form).then((res)=>{
+        window.$.busyLoadFull('hide');
+        this.$router.push({name: 'reset-password', query: {email: this.form.email}}) // user choose between interactive mode or none interactive mode
+      }).catch( (err) =>{
+        window.$.busyLoadFull('hide');
+        toast(err.data.message, {
+          autoClose: 4000,
+          hideProgressBar: true
+        }); // ToastOptions
+      })  
     },
 
     viewPassword() {

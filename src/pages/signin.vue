@@ -1,6 +1,6 @@
 
 <template>
-  <div class="">
+  <div id="busy" class="">
 
     <div class="row w-full mt-5 align-items-center">
       <div class="col-1 ">
@@ -63,6 +63,7 @@
 // @ts-nocheck
 import { AuthService } from '../services';
 import { useAuthStore } from '~/store/auth';
+import { useEventStore } from '../store';
 import { toast } from 'vue3-toastify';
 import 'vue3-toastify/dist/index.css';
 
@@ -73,27 +74,26 @@ export default {
       payload: {}
     }
   },
-  mounted() { },
+  mounted() {},
   methods: {
     loginUser(){
 
-      try {
-          AuthService.loginUser(this.payload).then((res)=>{
-              const authStore = useAuthStore();
-              authStore.setAuthUser(res.data.user)
-              authStore.setToken(res.data.token)
-              this.$router.push('/zinn') // user choose between interactive mode or none interactive mode
-             
-          }).catch( (err) =>{
-            toast(err.data.message, {
-              autoClose: 4000,
-              hideProgressBar: true
-            }); // ToastOptions
-          })  
-      } catch (error) {
+      window.$.busyLoadFull('show');
+      AuthService.loginUser(this.payload).then((res)=>{
+          const authStore = useAuthStore();
+          authStore.setAuthUser(res.data.user)
+          authStore.setToken(res.data.token)
           
-      }
-
+          window.$.busyLoadFull('hide');
+          this.$router.push('/zinn') // user choose between interactive mode or none interactive mode
+      }).catch( (err) =>{
+        window.$.busyLoadFull('hide');
+        toast(err.data.message, {
+          autoClose: 4000,
+          hideProgressBar: true
+        }); // ToastOptions
+      })  
+     
     },
 
     viewPassword() {
