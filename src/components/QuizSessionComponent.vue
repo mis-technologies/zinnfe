@@ -233,7 +233,7 @@ export default {
             ).then((res)=>{
               // if challeng route to challenge result page
 
-              if(this.quiz_session?.is_single_user == 1){
+              if(this.quiz_session?.is_single_user){
                 this.$router.push({name: 'quiz-session-result', query: {session_id: this.quiz_session.id }})  
               }else{
                 let challengeId = this.quiz_session.challenge_id
