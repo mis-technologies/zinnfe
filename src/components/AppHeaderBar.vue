@@ -1,6 +1,6 @@
 
 <template>
-    <div k:ey="key" class="heading fixed-top px-4 gap-5 py-2 mb-4 d-flex align-items-center justify-content-between" :class="class">
+    <div :key="key" class="heading fixed-top px-4 gap-5 py-2 mb-4 d-flex align-items-center justify-content-between" :class="class">
         <div class="cyber-icon">
             <a href="" @click.prevent="$router.back()"><i class="fa-solid fa-arrow-left"></i></a>
         </div>
