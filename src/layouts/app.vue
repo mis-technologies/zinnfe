@@ -1,9 +1,6 @@
 <template>
    
     <main class="homepage-wrapper" >
-       
-        <!-- <h2 style="z-index: 9999;" class="text-center waviy"><span>You have a new challenge</span></h2> -->
-
         <RouterView/>
         <AppBottomBar></AppBottomBar>
 
@@ -27,7 +24,7 @@ export default {
     },
     mounted(){
         let instance = SocketInstance.getSocketInstance()
-       let authuser = useAuthStore().authUser
+        let authuser = useAuthStore().authUser
 
         instance.channel(authuser.email).listen(".ChallengeNotification", (e) => {
           console.log('.ChallengeNotification', e)
