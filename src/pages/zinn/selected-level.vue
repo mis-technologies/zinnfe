@@ -8,7 +8,7 @@
             <img src="/images/target-iso-color.png" class="w-100">
             <div class="description">
                 <p>
-                    It can be hard to stay <span>motivated</span> so keep pushing!
+                    It can be hard to stay motivated so keep pushing!
                 </p>
             </div>
         </div>

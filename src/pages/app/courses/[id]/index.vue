@@ -24,7 +24,7 @@
           <div class="video-lessons mt-4">
               <h2 class="fw-bold fs-1">Lessons</h2>
               <div class="links" style="overflow-y: scroll; height: 80%">
-                  <a v-for="lesson in course.lessons" @click=" $router.push({name: 'app-lesson-detail', params: {id: lesson.id}}) " href="#" class="d-flex align-items-center gap-4 fs-2 nav-link my-3">
+                  <a v-for="lesson in course.lessons" @click=" $router.push({name: 'app-lesson-detail', params: {id: lesson.id}}) " href="#" class="d-flex align-items-center gap-4 fs-2 nav-link my-3 lesson-list">
                       <div class="icon-wrapper position-relative">
                           <i class="fa-solid fa-play"></i>
                       </div>
@@ -68,3 +68,12 @@ export default {
 
 }
 </script>
+
+<style>
+.lesson-list {
+    margin: 10px;
+    border: thin solid whitesmoke;
+    padding: 10px;
+    border-radius: 10px;
+}
+</style>
