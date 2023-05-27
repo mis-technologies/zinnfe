@@ -47,7 +47,7 @@ export default {
             level_answers: [
                 { id: 1, text: 'I am new to the cyber space', level: 'beginner'},
                 { id: 2, text: 'Slightly aware', level: 'beginner'},
-                { id: 3, text: 'I am intermediate', level: 'intermediate'},
+                { id: 3, text: 'I am intermediate', level: 'beginner'},
                 { id: 4, text: 'I am quite the expert', level: 'advanced'}
             ]
         }
