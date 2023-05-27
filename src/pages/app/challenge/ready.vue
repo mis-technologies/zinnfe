@@ -47,7 +47,7 @@
             <div v-else class="description mt-10">
                <div v-if="challenge.to_user_complete == 1">
                     <p class="text-red text-center fs-1">You have already completed this challenge, click on view results</p>
-                    <button @click="viewChallengeResult()" class="btn btn-continue">View Results</button>
+                    <button @click="viewChallengeResult()" style="height:  40px; margin-top: 20px;"  class="btn btn-continue">View Results</button>
                 </div>
 
                 <div v-else class="text-white text-center fs-1">
