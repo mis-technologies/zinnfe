@@ -40,9 +40,9 @@
                 <p @click="selectAnswer(answer, current_question, $event)" v-for="answer in current_question?.answers" ref="answer" class="px-3 my-2 py-3 fs-1">{{ answer.answer }}</p>
             </div>
             <button v-if="is_last_question" @click="submitQuizResponse()"
-                class="btn border btn-light text-primary fw-bold fs-2 rounded outline-0 py-4 fixed-buttom bg-primary text-light position-absolute">Submit</button>
+                class="btn border btn-light fw-bold fs-2 rounded outline-0 py-4 fixed-buttom  text-light position-absolute" style="background: #1290cb;">Submit</button>
             <button v-else @click="nextQuestion() "
-                class="btn border btn-light text-primary fw-bold fs-2 rounded outline-0 py-4 fixed-buttom bg-primary text-light position-absolute">
+                class="btn border btn-light fw-bold fs-2 rounded outline-0 py-4 fixed-buttom text-light position-absolute" style="background: #1290cb;">
                 Continue
                 <span v-if="no_answer_selected" class="block text-sm text-red">Please choose an answer</span>
             </button>
