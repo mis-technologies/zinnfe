@@ -27,7 +27,7 @@
 
 
             <p v-if="otheruser_hasnotplayed" class="text-center text-red fs-1 fw-bold mt-10">Waiting for the other user to complete challenge</p>
-            <button @click="$router.go(0)"  class="btn btn-main">Refresh</button>
+            <button @click="$router.go(0)"  class="btn btn-continue">Refresh</button>
 
         </div>
 
