@@ -227,12 +227,13 @@ export default {
 
         submitQuizResponse(){
             console.log(this.quiz_responses)
+            window.$.busyLoadFull('show');
             QuizService.submitQuizSession(
                 this.quiz_session.id,
                 this.quiz_responses
             ).then((res)=>{
               // if challeng route to challenge result page
-
+              window.$.busyLoadFull('hide');
               if(this.quiz_session?.is_single_user){
                 this.$router.push({name: 'quiz-session-result', query: {session_id: this.quiz_session.id }})  
               }else{
@@ -241,7 +242,7 @@ export default {
               }
                
             }).catch( (err) =>{
-              
+                window.$.busyLoadFull('hide');
             })  
         }
     }
